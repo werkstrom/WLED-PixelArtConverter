@@ -57,6 +57,7 @@ The code generated will create a switch for you within home Assistant. What you 
 ### Where to find images
 If you want to create your own or modify/edit then [www.pixilart.com](https://www.pixilart.com) is an excelent tool
 If you want to find old sprites from old games try out [www.spriters-resource.com](https://www.spriters-resource.com) or [opengameart.org](https://opengameart.org/)
+There are also some (a few) here in the folder "examples"
 
 
 
