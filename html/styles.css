@@ -1,0 +1,166 @@
+
+      .box {
+        border: 2px solid white;
+      }
+      body {
+        font-family: 'Arcade', Arial, sans-serif;
+        background-color: #151515;
+  
+      }
+
+      .top-part {
+        width: 600px;
+        margin: 0 auto;
+      }
+      .container {
+        max-width: 100% -40px;
+        border-radius: 0px;
+        padding: 20px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.3em;
+        color: rgb(126, 76, 128);
+        margin: 20px 0;
+        font-family: 'Arcade', Arial, sans-serif;
+        line-height: 0.5;
+        text-align: center;
+      }
+      h2 {
+        font-size: 1.3em;
+        color: rgba(126, 76, 128, 0.61);
+        margin: 20px 0;
+        font-family: 'Arcade', Arial, sans-serif;
+        line-height: 0.5;
+        text-align: center;
+      }
+
+      p {
+        font-size: 1.2em;
+        color: rgb(119, 119, 119);
+        line-height: 1.5;
+        font-family: 'Arcade', Arial, sans-serif;
+      }
+      
+      #fieldTable {
+        font-size: 1  em;
+        color: #777;
+        line-height: 1;
+        font-family: 'Arcade', Arial, sans-serif;
+      }
+
+      #drop-zone {
+        display: block;
+        width: 100%-40px;
+        border: 3px dashed #7E4C80;
+        border-radius: 0px;
+        text-align: center;
+        padding: 20px;
+        margin: 0px;
+        cursor: pointer;
+        
+        font-family: 'Arcade', Arial, sans-serif;
+        font-size: 15px;
+        color: #777;
+      }
+      
+
+      *.button {
+        display: block;
+        width: 100% - 40px;
+        border: 2px dashed #ccc;
+        border-radius: 20px;
+        text-align: center;
+        padding: 20px;
+        margin: 0px;
+        cursor: pointer;
+      }
+
+      #file-picker {
+        display: none;
+      }
+      * select {
+        background-color: #333333;
+        color: #C0C0C0;
+        border: 1px solid #C0C0C0;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        padding: 0em;
+        width: 100%;
+        height: 27px;
+        font-size: 15px;
+        color: rgb(119, 119, 119);
+        border-radius: 0;
+      }
+      * input[type=range] {
+        -webkit-appearance:none;
+        flex-grow: 1;
+        border-radius: 0px;
+        background: linear-gradient(to right, #333333 0%, #333333 100%);
+        color: #C0C0C0;
+        border: 1px solid #C0C0C0; 
+        margin-top: 0.5em; 
+        margin-left: 0em;     
+      }
+      input[type="range"]::-webkit-slider-thumb{
+        -webkit-appearance:none;
+        width: 25px;
+        height:25px;
+        background:#7E4C80;
+        position:relative;
+        z-index:3;
+      }
+      .rangeNumber{
+        width: 20px;
+        vertical-align: middle;
+      }
+      * input[type=text] {
+        background-color: #333333;
+        border: 1px solid #C0C0C0;
+        padding-inline-start: 5px;
+        margin-top: 10px;
+        width: 100%;
+        height: 27px;
+        border-radius: 0px;
+        font-family: 'Arcade', Arial, sans-serif;
+        font-size: 15px;
+        color: rgb(119, 119, 119);
+      }
+      * input[type="checkbox"] {
+      }
+      * input[type=submit] {
+        background-color: #333333;
+        border: 1px solid #C0C0C0;
+        padding: 0.5em;
+        width: 100%;
+        border-radius: 0px;
+        font-family: 'Arcade', Arial, sans-serif;
+        font-size: 1.3em;
+        color: rgb(119, 119, 119);
+      }
+      * button {
+        background-color: #333333;
+        border: 1px solid #C0C0C0;
+        padding: 0.5em;
+        margin-bottom: 15px;
+        width: 100%;
+        border-radius: 0px;
+        font-family: 'Arcade', Arial, sans-serif;
+        font-size: 1.3em;
+        color: rgb(119, 119, 119);
+      }
+      * textarea {
+        background-color: #333333;
+        border: 1px solid #C0C0C0;
+        padding: 0em;
+        margin-bottom: 10px;
+        width: 100%;
+        height: 200px;
+        border-radius: 0px;
+        font-family: 'Courier', Arial, sans-serif;
+        font-size: 1em;
+        color: rgb(119, 119, 119);
+      }
+    .hide {
+        display: none;
+    }
