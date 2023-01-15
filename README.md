@@ -55,7 +55,7 @@ And you should be good to go.
 ## Notes and tips
 
 ### Image Size
-It is ***necessary*** that your image size matches your LED display, perfectly. There are som many free online tools out there and which one is the best today will vary. Just google it and find one that works for you. Just as a short note: There is no resize function in PixelArtCreator for the simple reason there are som many others that do it, and do it very well. 
+You can resize your images to fit your led setup. The image is projected exactly as it is, onto exactly the size you provide. That means that if your source file aspect ratio does not fit your target size aspect ratio, your image will get destorted. Still in many cases it is not noticable.
 
 ### Output format
 Pretty self explainatory. If you are to upload to your device from PixelArtConverter you should select WLED JSON
@@ -65,6 +65,8 @@ Though WLED can handle both. The documentation explicitly states HEX is faster a
 
 ### Addressing
 PixelArtConverter can either generate one color code per led/pixel, Or, it can identify ranges within your image. Many times the ranges option generates fewer commands and is thus faster and more reliable. But not allways. If you upload to your device and saves it as a preset, it doesn't matter. The preset is based on WLED's internal format and is thus optimized. But if you are to trigger the image from another place, like Home Assistant it can make a lot of difference, depending on your image. The Ukranian flag (that everybody knows by now) is MUCH faster and easier in range mode, but a chess board migt actually be slower...
+
+As of version 1.0.1 there is a hybrid mode that utilizes the ability to mix single and range. this should be the default for anyone to use from now on.
 
 ### Number of colors per command
 WLED is running on very limited devices, and you're throwing a massive amount af data on them in a very short time. To make things easy on the devices, limit your number of colors. You can test with your device how much it can handle. But this will vary.
