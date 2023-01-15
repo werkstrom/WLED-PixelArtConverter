@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-  
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <title>Led Matrix Pixel Art Convertor</title>
     <style> 
-        h1,h2{margin:20px 0;line-height:.5;font-family:Arcade,Arial,sans-serif}#drop-zone,#fieldTable,* input[type=text],body,h1,h2,p{font-family:Arcade,Arial,sans-serif}#drop-zone,* select,p{color:#777}.box{border:2px solid #fff}body{background-color:#151515}.top-part{width:600px;margin:0 auto}#drop-zone,.button{display:block;text-align:center;padding:20px;margin:0;cursor:pointer}.container{max-width:100% -40px;border-radius:0;padding:20px;text-align:center}h1{font-size:2.3em;color:#7e4c80;text-align:center}h2{font-size:1.3em;color:rgba(126,76,128,.61);text-align:center}p{font-size:1.2em;line-height:1.5}#fieldTable{font-size:1 em;color:#777;line-height:1}#drop-zone{width:100%-40px;border:3px dashed #7e4c80;border-radius:0;font-size:15px}.button{width:100% - 40px;border:2px dashed #ccc;border-radius:20px}* input[type=text],* select{background-color:#333;border:1px solid silver;width:100%;height:27px;font-size:15px}#file-picker,.hide{display:none}* select{margin-top:.5em;margin-bottom:.5em;padding:0;border-radius:0}* input[type=range]{-webkit-appearance:none;flex-grow:1;border-radius:0;background:linear-gradient(to right,#333 0,#333 100%);color:silver;border:1px solid silver;margin-top:.5em;margin-left:0}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:25px;height:25px;background:#7e4c80;position:relative;z-index:3}.rangeNumber{width:20px;vertical-align:middle}* input[type=text]{padding-inline-start:5px;margin-top:10px;border-radius:0;color:#777}* button,* input[type=submit]{border:1px solid silver;padding:.5em;font-family:Arcade,Arial,sans-serif;font-size:1.3em;background-color:#333;width:100%;color:#777}* input[type=submit]{border-radius:0}* button{margin-bottom:15px;border-radius:0}* textarea{background-color:#333;border:1px solid silver;padding:0;margin-bottom:10px;width:100%;height:200px;border-radius:0;font-family:Courier,Arial,sans-serif;font-size:1em;color:#777}.gridstyle{position:fixed;top:0;left:0;width:100vw;height:100vh;display:grid;grid-template-columns:repeat(auto-fill,20px);grid-template-rows:repeat(auto-fill,20px);grid-gap:0px}
+      h1,h2{margin:20px 0;line-height:.5}#fieldTable,#scaleTable,p{color:#777;font-family:Arcade,Arial,sans-serif}#drop-zone,.container{text-align:center;padding:20px}#drop-zone,#fieldTable,#scaleTable,body,h1,h2,p{font-family:Arcade,Arial,sans-serif}.rangeNumber,.svg-icon{vertical-align:middle}.box{border:2px solid #fff}body{background-color:#151515}.top-part{width:600px;margin:0 auto}.container{max-width:100% -40px;border-radius:0}h1{font-size:2.3em;color:#7e4c80;text-align:center}h2{font-size:1.3em;color:rgba(126,76,128,.61);text-align:center}p{font-size:1.2em;line-height:1.5}#fieldTable,#scaleTable{font-size:1 em;line-height:1}#drop-zone{display:block;width:100%-40px;border:3px dashed #7e4c80;border-radius:0;margin:0;cursor:pointer;font-size:15px;color:#777}* select,.fullTextField[type=text]{background-color:#333;border:1px solid silver;width:100%;height:27px;color:#777;font-size:15px}#file-picker,.hide{display:none}* select{margin-top:.5em;margin-bottom:.5em;padding:0;border-radius:0}* input[type=range]{-webkit-appearance:none;flex-grow:1;border-radius:0;background:linear-gradient(to right,#333 0,#333 100%);color:silver;border:1px solid silver;margin-top:.5em;margin-left:0}input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:25px;height:25px;background:#7e4c80;position:relative;z-index:3}.rangeNumber{width:20px}.fullTextField[type=text]{padding-inline-start:5px;margin-top:10px;border-radius:0;font-family:Arcade,Arial,sans-serif}* button,* input[type=submit]{background-color:#333;border:1px solid silver;font-size:1.3em;width:100%;font-family:Arcade,Arial,sans-serif}* input[type=submit]{padding:.5em;border-radius:0;color:#777}* button{padding-inline:5px;border-radius:0;color:#777;display:flex;align-items:center;justify-content:center;cursor:pointer}.sizeInputFields,textarea{background-color:#333;border:1px solid silver;color:#777}textarea{grid-row:1/2;width:100%;height:200px}.grids-class{position:fixed;top:0;left:0;width:100vw;height:100vh;display:grid;grid-template-columns:repeat(auto-fill,20px);grid-template-rows:repeat(auto-fill,20px);grid-gap:0px}.buttondivmid-class,.gap{width:10px}#sizeDiv *,.buttondiv-class,.buttondivmid-class{display:inline-block}.buttondiv-class{flex:1}#image-container{display:grid;grid-template-rows:1fr 1fr}#button-container{display:flex;padding-bottom:10px;padding-top:10px}.buttonclass{flex:1;padding-top:5px;padding-bottom:5px}#submitConvert::before{content:"";display:inline-block;background-image:url('data:image/svg+xml;utf8, <svg style="width:24px;height:24px" viewBox="0 0 24 24" <path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" /></svg>');width:36px;height:36px}.sizeInputFields{width:50px;padding-inline-start:5px;margin-top:10px;height:27px;border-radius:0;font-family:Arcade,Arial,sans-serif;font-size:15px}
     </style>
   </head>
-
   <body>
     <div class = top-part>
-      <h1>Led Matrix Pixel Art Converter</h1>
+      <h1><svg style="width:32px;height:32px" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z" />
+    </svg>Led Matrix Pixel Art Converter</h1>
       <h2>Convert image to WLED JSON (pixel art on WLED matrix)</h2>
       <p>
         <table id="fieldTable"  style="width: 100%; table-layout: fixed; align-content: center;">
@@ -60,6 +60,7 @@
               <select id="addressingSelector">
                 <option value="range" selected>Range (10, 17, #f4f4f4)</option>
                 <option value="single">Single (#f4f4f4)</option>
+                <option value="hybrid">Hybrid (#f0f0f0,10, 17, #f4f4f4)</option>
               </select>
             </td>
           </tr>
@@ -68,8 +69,8 @@
               <label for="brightnessNumber">Brightness:</label>
             </td>
             <td style="vertical-align: middle; display: flex; align-items: center;">
-              <input type="range" id="brightnessNumber" min="1" max="255" value="127">
-              <span id="brightnessValue">100</span>
+              <input type="range" id="brightnessNumber" min="1" max="255" value="255">
+              <span id="brightnessValue">255</span>
             </td>
           </tr>
           <tr>
@@ -94,7 +95,7 @@
               <label for="haUID">HA Device Unique ID:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="haUID" value="pixel_art_controller_001a">
+              <input class="fullTextField" type="text" id="haUID" value="pixel_art_controller_001a">
             </td>
           </tr>
           <tr class="ha-hide">
@@ -102,7 +103,7 @@
               <label for="haName">HA Device Name:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="haName" value="Pixel Art Kitchen">
+              <input class="fullTextField" type="text" id="haName" value="Pixel Art Kitchen">
             </td>
           </tr>
           <tr>
@@ -110,61 +111,35 @@
               <label for="curlUrl">Device IP/host name:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="curlUrl" value="">
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle;">
-              <label for="renderCheckbox">Show pixel rendering</label>
-            </td>
-            <td style="vertical-align: middle;">
-              <input type="checkbox" id="renderCheckbox" checked>
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle;">
-              <label for="helpCheckbox">Show help/about</label>
-            </td>
-            <td style="vertical-align: middle;">
-              <input type="checkbox" id="helpCheckbox">
+              <input class="fullTextField" type="text" id="curlUrl" value="">
             </td>
           </tr>
         </table>
-        
-        
+        <table  class= "scaleTableClass" id="scaleTable"  style="width: 100%; table-layout: fixed; align-content: center;">
+          <tr>
+            <td style="vertical-align: middle;">
+              <div id="scaleDiv">
+                <svg id="scaleToggle" style="width:36px;height:36px" viewBox="0 0 24 24" onclick="switchScale()">
+                  <path id="scaleTogglePath" fill="currentColor" d="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M7,15A3,3 0 0,1 4,12A3,3 0 0,1 7,9A3,3 0 0,1 10,12A3,3 0 0,1 7,15Z" />
+                </svg>
+                &nbsp;&nbsp;&nbsp;
+                <svg id="scaleSvg" style="width:36px;height:36px" viewBox="0 0 24 24" onclick="switchScale()">
+                  <path id="scalePath" fill="currentColor" d="M21,15H23V17H21V15M21,11H23V13H21V11M23,19H21V21C22,21 23,20 23,19M13,3H15V5H13V3M21,7H23V9H21V7M21,3V5H23C23,4 22,3 21,3M1,7H3V9H1V7M17,3H19V5H17V3M17,19H19V21H17V19M3,3C2,3 1,4 1,5H3V3M9,3H11V5H9V3M5,3H7V5H5V3M1,11V19A2,2 0 0,0 3,21H15V11H1M3,19L5.5,15.79L7.29,17.94L9.79,14.72L13,19H3Z" />
+                </svg>
+              </div>
+            </td>
+            <td style="vertical-align: middle;">
+              <div id="sizeDiv" style="display: none;">
+                <label for="sizeX">X : </label> &nbsp;<input class="sizeInputFields" type="number" id="sizeX" value="0">
+                &nbsp;&nbsp;&nbsp;
+                <label for="sizeY">Y : </label> &nbsp;<input class="sizeInputFields" type="number" id="sizeY" value="0">
+              </div>
+            </td>
+          </tr>
+        </table>
       </p>
-      </p>
-      
-      <div id="help-container" style="display: none">>
-        <p> 
-          1a. Create a GIF or PNG ( <a href="https://www.pixilart.com/" target="_blank">www.pixilart.com</a> ) <br> 
-          1b. Download some image that fits your led matrix ( <a href="https://www.spriters-resource.com/" target="_blank">www.spriters-resource.com</a>) <br> 
-          2. Upload the image using the file picker or drag-and-drop it <br> 
-          3. Select the led setup that matches your WLED. ( <a href="https://kno.wled.ge/advanced/mapping/" target="_blank">https://kno.wled.ge</a>) <br>
-          4. Select Otput format. <br>
-          - WLED is pure JSON in the way the documentation descripbes it.<br>&nbsp;&nbsp;&nbsp;Use in WLED (presets?)<br>
-          - CURL is formated as a curl command you can past into a command <br>&nbsp;&nbsp;&nbsp;window and test yor led matrix<br>
-          - Home Assistant is teh full YAML you can past into your <br>&nbsp;&nbsp;&nbsp;configuration.yaml in Home Assistant<br>
-          5. Select Color format. Select HEX if possible (more efficiant)<br>
-          6. Select Addressing scheme. Send all pixels individually or try to <br>&nbsp;&nbsp;&nbsp;send ranges of the same color.<br>
-          7. Select brighness value<br>
-          8. According to docs WLED can handle max 256 colors/command. So the JSON is <br>&nbsp;&nbsp;&nbsp;split if you have larger images. <br>&nbsp;&nbsp;&nbsp;Lower this value if you have issues.<br>
-          9. Set Home Assistant Device values if you are going to use HA<br>
-          10. Set the device IP/host for HA and CURL to work<br>
-          11. Press the convert button <br> 
-          12. Copy the generated JSON and put it somewhere in WLED<br>&nbsp;&nbsp;&nbsp;, Run CURL or paste to Home Assistant
-        </p>
-        <p> 
-          This tool is a proof of concept and work in progress. As you might expect, there is absolutely no warranty, what so ever. 
-        </p>
-        <p>
-          The Arcade font is copyright (c) Jakob Fischer at www.pizzadude.dk,  all rights reserved. Do not distribute without the author's permission.
-        </p>
-        <p>
-          It should be said that I don&lsquo;t acctually own a setup for this. I basically did it to play around over new years. But I have ordered a matrix now, and a small controller chip... let's see how that works out. 
-        </p>
-      </div>
-      
+
+    </p>
       <p>
         <label for="file-picker">
           <div id="drop-zone">    
@@ -177,38 +152,37 @@
       <p>
         <input type="file" id="file-picker" style="display: none;">
         <div style="width: 100%; text-align: center;" >
-          <img id="preview" style="display: block; margin: 0 auto;"><br>
+          <img id="preview" style="display: block; margin: 0 auto;">
+          <img id="newimage" style="display: block; margin: 0 auto;"><br>
         </div>
         
-        <form id="form">
-          <input id="submitConvert" type="submit" value="Convert to JSON for WLED" style="display: none">
-        </form>
+        <div id="submitConvertDiv" style="display: none;">
+          <button id="convertbutton" class="buttonclass"></button>
+        </div>
         
         <div id="raw-image-container" style="display: none">
           <img id="image" src="" alt="RawImage image">
         </div>
+        
       </p>
       
-      <div id="image-container" style="display: none">
+      <div id="image-container" style="display: none;">
         <div id="image-info" style="display: none"></div>
-          <p>
-            <div>
-              <textarea id="JSONled"></textarea>
-              <br>
-              <button id="copyJSONledbutton" >Copy led-JSON to Clipboard</button>
-              <br>
-              <button id="sendJSONledbutton" >Send to Device</button>
-              <br>
-            </div>
-          </p>
-        </div>
+        <textarea id="JSONled"></textarea>
       </div>
+
+      <div id="button-container" style="display: none;">
+        <button id="copyJSONledbutton" class="buttonclass"></button>
+        <div class="gap"></div>
+        <button id="sendJSONledbutton" class="buttonclass"></button>
+      </div>
+
     </div>
     <div id=bottom-part style="display: none" class=bottom-part></div>
           <canvas id="pixelCanvas"></canvas>
     </div>
     <script>
-        var curlStart='curl -X POST "http://',curlMid1="/json/state\" -d '",curlEnd='\' -H "Content-Type: application/json"';const haStart="#Uncomment if you don't allready have these defined in your switch section of your configuration.yaml\n#- platform: command_line\n  #switches:\n    ",haMid1="\n      friendly_name: ",haMid2="\n      unique_id: ",haMid3="\n      command_on: >\n        ",haMid4='\n      command_off: >\n        curl -X POST "http://',haEnd='/json/state" -d \'{"on":false}\' -H "Content-Type: application/json"',haCommandLeading="        ",JSONledStringStart='{"on":true, "bri":',JSONledStringMid1=', "seg":{"i":[',JSONledShortStringStart="{",JSONledShortStringMid1='"seg":{"i":[',JSONledStringEnd="]}}";console.log(location.host),document.getElementById("curlUrl").value=location.host;let httpArray=[];async function postPixels(){for(let e of httpArray)try{console.log(e),console.log(e.length);let t=await fetch("http://"+document.getElementById("curlUrl").value+"/json/state",{method:"POST",headers:{"Content-Type":"application/json"},body:e}),n=await t.json();console.log(n)}catch(l){console.error(l)}}document.getElementById("form").addEventListener("submit",function(e){e.preventDefault();let t=document.getElementById("preview").src;if(isValidBase64Gif(t))document.getElementById("image").src=t,getPixelRGBValues(t),document.getElementById("image-container").style.display="block";else{let n=document.getElementById("image-info");n.innerHTML="<p><b>WARNING!</b> File does not appear to be a valid GIF image</p>",n.style.display="block",document.getElementById("image-container").style.display="none",document.getElementById("JSONled").value="",console.log("The string '"+t+"' is not a valid base64 GIF image.")}}),copyJSONledbutton.addEventListener("click",async()=>{JSONled.select();try{await navigator.clipboard.writeText("test text"),console.log("Text copied to clipboard")}catch(e){console.error("Failed to copy text: ",e)}}),sendJSONledbutton.addEventListener("click",async()=>{"https:"===window.location.protocol?alert("Will only be available when served over http (or WLED is run over https)"):postPixels()});let helpCheckbox=document.getElementById("helpCheckbox"),helpDiv=document.getElementById("help-container");helpCheckbox.addEventListener("change",function(){helpCheckbox.checked?helpDiv.style.display="block":helpDiv.style.display="none"});const dropZone=document.getElementById("drop-zone"),filePicker=document.getElementById("file-picker"),preview=document.getElementById("preview");function zoneClicked(e){e.preventDefault(),filePicker.click()}function dragEnter(e){e.preventDefault(),this.classList.add("drag-over")}function dragOver(e){e.preventDefault()}function dropped(e){e.preventDefault(),this.classList.remove("drag-over");let t=e.dataTransfer.files[0];updatePreview(t)}function filePicked(e){let t=e.target.files[0];updatePreview(t)}function updatePreview(e){let t=new FileReader;t.onload=function(){preview.src=t.result,document.getElementById("submitConvert").style.display="block"},t.readAsDataURL(e)}function isValidBase64Gif(e){return!0}dropZone.addEventListener("dragenter",dragEnter),dropZone.addEventListener("dragover",dragOver),dropZone.addEventListener("drop",dropped),dropZone.addEventListener("click",zoneClicked),filePicker.addEventListener("change",filePicked),document.getElementById("brightnessNumber").oninput=function(){document.getElementById("brightnessValue").textContent=this.value},document.getElementById("colorLimitNumber").oninput=function(){document.getElementById("colorLimitValue").textContent=this.value};for(var formatSelector=document.getElementById("formatSelector"),hideableRows=document.querySelectorAll(".ha-hide"),i=0;i<hideableRows.length;i++)hideableRows[i].classList.add("hide");function getPixelRGBValues(e){httpArray=[],document.getElementById("copyJSONledbutton");let t=document.getElementById("JSONled"),n=document.getElementById("colorLimitNumber").value,l=-1,a=document.getElementById("formatSelector");l=a.selectedIndex;let o=a.options[l].value;l=(a=document.getElementById("ledSetupSelector")).selectedIndex;let r=a.options[l].value;l=(a=document.getElementById("colorFormatSelector")).selectedIndex;let d=!0;"dec"==a.options[l].value&&(d=!1),l=(a=document.getElementById("addressingSelector")).selectedIndex;let s=!0;"single"==a.options[l].value&&(s=!1);let c="",h="",g="'",u="'";d||(g="[",u="]");let m=!1,p="";var y=document.createElement("canvas"),f=y.getContext("2d"),v=new Image;v.src=e,v.onload=function(){y.width=v.width,y.height=v.height,p="<p>Width: "+v.width+", Height: "+v.height+" (make sure this matches your led matrix setup)</p>",f.drawImage(v,0,0);var e=f.getImageData(0,0,v.width,v.height).data,l=[];let a=1;"l2r"==r&&(a=0);for(var E=0;E<e.length;E+=4){var I=e[E],B=e[E+1],b=e[E+2],w=e[E+3];let $=E/4,S=Math.floor($/v.width),_=$;if("matrix"==r);else if((S+a)%2==0);else{let x=_-S*v.width,k=v.width-1-x;_=S*v.width+k}l.push([I,B,b,w,_,$,S])}l.sort((e,t)=>e[5]-t[5]);let L=[...l];L.sort((e,t)=>e[4]-t[4]);let C="",T=-1,N=L.length,R=0,P=[];for(let O=0;O<N;O++){let D=L[O],M=D[0],j=D[1],A=D[2],H=D[3],W="",G=-1;if(s){if(T<0&&(T=O),O<N-1){let J=L[O+1];(J[0]!=M||J[1]!=j||J[2]!=A)&&(W=T+","+(G=O+1)+",")}else W=T+","+(G=O+1)+","}else""==C&&(C=O+", 'dummy',"),T=O,G=O;if(H<255&&(m=!0),G>-1){let U=M+","+j+","+A;if(d){let[V,F,Z]=[M,j,A];U=`${[V,F,Z].map(e=>e.toString(16).padStart(2,"0")).join("")}`}C=C+W+g+U+u,(R+=1)%n==0||O==N-1?(P.push(C),C=""):C+=",",T=-1}}C="";for(let z=0;z<P.length;z++){let q='{"on":true, "bri":'+document.getElementById("brightnessNumber").value+', "seg":{"i":['+P[z]+"]}}";httpArray.push(q);let X=curlStart+document.getElementById("curlUrl").value+curlMid1+q+curlEnd;z>0&&(C+="\n",c+=" && "),C+=q,c+=X}h="#Uncomment if you don't allready have these defined in your switch section of your configuration.yaml\n#- platform: command_line\n  #switches:\n    "+document.getElementById("haID").value+"\n      friendly_name: "+document.getElementById("haName").value+"\n      unique_id: "+document.getElementById("haUID").value+haMid3+c+haMid3+document.getElementById("curlUrl").value+'/json/state" -d \'{"on":false}\' -H "Content-Type: application/json"',"wled"==o?t.value=C:"curl"==o?t.value=c:"ha"==o?t.value=h:t.value="ERROR!/n"+o+" is an unknown format.";let K=document.getElementById("image-info"),Q=document.getElementById("image-info");m&&(p+="<p><b>WARNING!</b> Transparency info detected in image. Transparency (alpha) has been ignored. To ensure you get the result you desire, use only solid colors in your image.</p>"),K.innerHTML=p,Q.style.display="block",drawBoxes(l,v.width,v.width)}}function drawBoxes(e,t,n){var l=document.getElementById("pixelCanvas"),a=l.getContext("2d");window.innerHeight<window.innerWidth?l.width=Math.floor(.98*window.innerHeight):l.width=Math.floor(.98*window.innerWidth);let o=Math.floor(l.width/t);l.height=o*n+10;for(let r=0;r<n;r++)for(let d=0;d<t;d++){let s=e[r*t+d],c="rgb("+s[0]+", "+s[1]+", "+s[2]+")";s[0],s[1],s[2];let h=s[4];a.fillStyle=c,a.fillRect(d*o,r*o,o,o),a.strokeStyle="#888888",a.lineWidth=1,a.strokeRect(d*o,r*o,o,o),a.font="10px Arial",a.fillStyle="rgb(128,128,128)",a.textAlign="center",a.textBaseline="middle",a.fillText(h+1,d*o+o/2,r*o+o/2)}}function drawBackground(){let e=document.createElement("div");e.id="grid",e.classList.add("grid-class"),e.style.cssText="";let t=Math.ceil(window.innerWidth/20)*Math.ceil(window.innerHeight/20);for(let n=0;n<t;n++){let l=document.createElement("div");l.classList.add("box"),l.style.backgroundColor=getRandomColor(),e.appendChild(l)}e.style.zIndex=-1,document.body.appendChild(e)}function getRandomColor(){let e="rgba(";for(let t=0;t<3;t++)e+=Math.floor(256*Math.random())+",";return e+"0.05)"}formatSelector.addEventListener("change",function(){for(var e=0;e<hideableRows.length;e++)hideableRows[e].classList.toggle("hide","ha"!==this.value)}),window.drawBackground=drawBackground;
+      var curlStart='curl -X POST "http://',curlMid1="/json/state\" -d '",curlEnd='\' -H "Content-Type: application/json"';const haStart="#Uncomment if you don't allready have these defined in your switch section of your configuration.yaml\n#- platform: command_line\n  #switches:\n    ",haMid1="\n      friendly_name: ",haMid2="\n      unique_id: ",haMid3="\n      command_on: >\n        ",haMid4='\n      command_off: >\n        curl -X POST "http://',haEnd='/json/state" -d \'{"on":false}\' -H "Content-Type: application/json"',haCommandLeading="        ",JSONledStringStart='{"on":true, "bri":',JSONledStringMid1=', "seg":{"i":[',JSONledShortStringStart="{",JSONledShortStringMid1='"seg":{"i":[',JSONledStringEnd="]}}";var accentColor="#7E4C80",accentTextColor="#777",scaleToggleOffd="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M7,15A3,3 0 0,1 4,12A3,3 0 0,1 7,9A3,3 0 0,1 10,12A3,3 0 0,1 7,15Z",scaleToggleOnd="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M17,15A3,3 0 0,1 14,12A3,3 0 0,1 17,9A3,3 0 0,1 20,12A3,3 0 0,1 17,15Z";document.getElementById("curlUrl").value=location.host;let httpArray=[];async function postPixels(){for(let e of httpArray)try{console.log(e),console.log(e.length);let t=await fetch("http://"+document.getElementById("curlUrl").value+"/json/state",{method:"POST",headers:{"Content-Type":"application/json"},body:e}),l=await t.json();console.log(l)}catch(n){console.error(n)}}document.getElementById("convertbutton").addEventListener("click",function(){let e=document.getElementById("preview").src;if(isValidBase64Gif(e))document.getElementById("image").src=e,getPixelRGBValues(e),document.getElementById("image-container").style.display="block",document.getElementById("button-container").style.display="";else{let t=document.getElementById("image-info");t.innerHTML="<p><b>WARNING!</b> File does not appear to be a valid image</p>",t.style.display="block",document.getElementById("image-container").style.display="none",document.getElementById("JSONled").value="",console.log("The string '"+e+"' is not a valid base64 image.")}}),copyJSONledbutton.addEventListener("click",async()=>{let e=document.getElementById("JSONled");e.select();try{await navigator.clipboard.writeText(e.value)}catch(t){try{await document.execCommand("copy")}catch(l){console.error("Failed to copy text: ",l)}}}),sendJSONledbutton.addEventListener("click",async()=>{"https:"===window.location.protocol?alert("Will only be available when served over http (or WLED is run over https)"):postPixels()});const dropZone=document.getElementById("drop-zone"),filePicker=document.getElementById("file-picker"),preview=document.getElementById("preview");function zoneClicked(e){e.preventDefault(),filePicker.click()}function dragEnter(e){e.preventDefault(),this.classList.add("drag-over")}function dragOver(e){e.preventDefault()}function dropped(e){e.preventDefault(),this.classList.remove("drag-over");let t=e.dataTransfer.files[0];updatePreview(t)}function filePicked(e){let t=e.target.files[0];updatePreview(t)}function updatePreview(e){let t=new FileReader;t.onload=function(){preview.src=t.result,document.getElementById("submitConvertDiv").style.display=""},t.readAsDataURL(e)}function isValidBase64Gif(e){return!0}dropZone.addEventListener("dragenter",dragEnter),dropZone.addEventListener("dragover",dragOver),dropZone.addEventListener("drop",dropped),dropZone.addEventListener("click",zoneClicked),filePicker.addEventListener("change",filePicked),document.getElementById("brightnessNumber").oninput=function(){document.getElementById("brightnessValue").textContent=this.value},document.getElementById("colorLimitNumber").oninput=function(){document.getElementById("colorLimitValue").textContent=this.value};for(var formatSelector=document.getElementById("formatSelector"),hideableRows=document.querySelectorAll(".ha-hide"),i=0;i<hideableRows.length;i++)hideableRows[i].classList.add("hide");function switchScale(){let e=document.getElementById("scalePath"),t=document.getElementById("scaleTogglePath"),l=e.getAttribute("fill"),n="";l===accentColor?(l=accentTextColor,n=scaleToggleOffd,document.getElementById("sizeDiv").style.display="none"):(l=accentColor,n=scaleToggleOnd,document.getElementById("sizeDiv").style.display=""),e.setAttribute("fill",l),t.setAttribute("fill",l),t.setAttribute("d",n)}function getPixelRGBValues(e){httpArray=[],document.getElementById("copyJSONledbutton");let t=document.getElementById("JSONled"),l=document.getElementById("colorLimitNumber").value,n=!1,o=-1,a=document.getElementById("formatSelector");o=a.selectedIndex;let r=a.options[o].value;o=(a=document.getElementById("ledSetupSelector")).selectedIndex;let d=a.options[o].value;o=(a=document.getElementById("colorFormatSelector")).selectedIndex;let _=!0;"dec"==a.options[o].value&&(_=!1),o=(a=document.getElementById("addressingSelector")).selectedIndex;let s=!0;"single"==a.options[o].value?s=!1:"hybrid"==a.options[o].value&&(n=!0);let c="",g="",$="'",u="'";_||($="[",u="]");let h=!1,y="";var m=document.createElement("canvas"),p=m.getContext("2d"),f=new Image;f.src=e,f.onload=function(){let e=document.getElementById("scalePath").getAttribute("fill"),o=document.getElementById("sizeX").value,a=document.getElementById("sizeY").value;(e!=accentColor||o<1||a<1)&&(o=f.width,a=f.height),m.width=o,m.height=a,y="<p>Width: "+o+", Height: "+f.height+" (make sure this matches your led matrix setup)</p>",p.drawImage(f,0,0,o,a);var v=p.getImageData(0,0,o,a).data,E=[];let B=1;"l2r"==d&&(B=0);for(var I=0;I<v.length;I+=4){var b=v[I],w=v[I+1],S=v[I+2],A=v[I+3];let L=I/4,x=Math.floor(L/o),C=L;if("matrix"==d);else if((x+B)%2==0);else{let H=C-x*o,T=o-1-H;C=x*o+T}E.push([b,w,S,A,C,L,x])}E.sort((e,t)=>e[5]-t[5]);let M=[...E];M.sort((e,t)=>e[4]-t[4]);let k="",O=-1,N=M.length,V=0,P=[];for(let R=0;R<N;R++){let D=M[R],J=D[0],j=D[1],W=D[2],Z=D[3],z="",U=-1;if(s){if(O<0&&(O=R),R<N-1){let G=M[R+1];(G[0]!=J||G[1]!=j||G[2]!=W)&&(U=R+1,z=O==R&&n?""==k?""+R+",":"":O+","+U+",")}else z=O+1==(U=R+1)&&n?""==k?""+R+",":"":O+","+U+","}else""==k&&(k=R),O=R,U=R;if(Z<255&&(h=!0),U>-1){let Q=J+","+j+","+W;if(_){let[q,F,X]=[J,j,W];Q=`${[q,F,X].map(e=>e.toString(16).padStart(2,"0")).join("")}`}k=k+z+$+Q+u,(V+=1)%l==0||R==N-1?(P.push(k),k=""):k+=",",O=-1}}k="";for(let Y=0;Y<P.length;Y++){let K='{"on":true, "bri":'+document.getElementById("brightnessNumber").value+', "seg":{"i":['+P[Y]+"]}}";httpArray.push(K);let ee=curlStart+document.getElementById("curlUrl").value+curlMid1+K+curlEnd;Y>0&&(k+="\n",c+=" && "),k+=K,c+=ee}g="#Uncomment if you don't allready have these defined in your switch section of your configuration.yaml\n#- platform: command_line\n  #switches:\n    "+document.getElementById("haID").value+"\n      friendly_name: "+document.getElementById("haName").value+"\n      unique_id: "+document.getElementById("haUID").value+haMid3+c+haMid3+document.getElementById("curlUrl").value+'/json/state" -d \'{"on":false}\' -H "Content-Type: application/json"',"wled"==r?t.value=k:"curl"==r?t.value=c:"ha"==r?t.value=g:t.value="ERROR!/n"+r+" is an unknown format.";let et=document.getElementById("image-info"),el=document.getElementById("image-info");h&&(y+="<p><b>WARNING!</b> Transparency info detected in image. Transparency (alpha) has been ignored. To ensure you get the result you desire, use only solid colors in your image.</p>"),et.innerHTML=y,el.style.display="block",drawBoxes(E,o,a)}}function drawBoxes(e,t,l){var n=document.getElementById("pixelCanvas"),o=n.getContext("2d");window.innerHeight<window.innerWidth?n.width=Math.floor(.98*window.innerHeight):n.width=Math.floor(.98*window.innerWidth);let a=Math.floor(n.width/t);n.height=a*l+10;for(let r=0;r<l;r++)for(let d=0;d<t;d++){let _=e[r*t+d],s="rgb("+_[0]+", "+_[1]+", "+_[2]+")";_[0],_[1],_[2];let c=_[4];o.fillStyle=s,o.fillRect(d*a,r*a,a,a),o.strokeStyle="#888888",o.lineWidth=1,o.strokeRect(d*a,r*a,a,a),o.font="10px Arial",o.fillStyle="rgb(128,128,128)",o.textAlign="center",o.textBaseline="middle",o.fillText(c+1,d*a+a/2,r*a+a/2)}}function drawBackground(){let e=document.createElement("div");e.id="grid",e.classList.add("grid-class"),e.style.cssText="";let t=Math.ceil(window.innerWidth/20)*Math.ceil(window.innerHeight/20);for(let l=0;l<t;l++){let n=document.createElement("div");n.classList.add("box"),n.style.backgroundColor=getRandomColor(),e.appendChild(n)}e.style.zIndex=-1,document.body.appendChild(e)}function getRandomColor(){let e="rgba(";for(let t=0;t<3;t++)e+=Math.floor(256*Math.random())+",";return e+"0.05)"}formatSelector.addEventListener("change",function(){for(var e=0;e<hideableRows.length;e++)hideableRows[e].classList.toggle("hide","ha"!==this.value)}),document.getElementById("convertbutton").innerHTML='<svg style="width:36px;height:36px" viewBox="0 0 24 24"><path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" /> </svg>&nbsp; Convert to WLED JSON ',document.getElementById("copyJSONledbutton").innerHTML='<svg class="svg-icon" style="width:36px;height:36px" viewBox="0 0 24 24"> <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" /> </svg>&nbsp; Copy to clipboard',document.getElementById("sendJSONledbutton").innerHTML='<svg class="svg-icon" style="width:36px;height:36px" viewBox="0 0 24 24"> <path fill="currentColor" d="M6.5 20Q4.22 20 2.61 18.43 1 16.85 1 14.58 1 12.63 2.17 11.1 3.35 9.57 5.25 9.15 5.88 6.85 7.75 5.43 9.63 4 12 4 14.93 4 16.96 6.04 19 8.07 19 11 20.73 11.2 21.86 12.5 23 13.78 23 15.5 23 17.38 21.69 18.69 20.38 20 18.5 20H13Q12.18 20 11.59 19.41 11 18.83 11 18V12.85L9.4 14.4L8 13L12 9L16 13L14.6 14.4L13 12.85V18H18.5Q19.55 18 20.27 17.27 21 16.55 21 15.5 21 14.45 20.27 13.73 19.55 13 18.5 13H17V11Q17 8.93 15.54 7.46 14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11H6.5Q5.05 11 4.03 12.03 3 13.05 3 14.5 3 15.95 4.03 17 5.05 18 6.5 18H9V20M12 13Z" /> </svg>&nbsp; Send to device',window.drawBackground=drawBackground;
     </script>
   </body>
 </html>
