@@ -68,7 +68,8 @@ As a security meassure web browser do not allow you to access resources (web pan
 1. In order to upload directly to your device, PixelArtConverter **must** be loaded in the same security context (http/https) as WLED. Since most WLED devices are local, IoT devices it's mainly http. That's why you need to download the files and run them locally. A more convenient sollution is to have WLED serve you the page directly as that will solve any issues with possible missmatch. As of today you can set this up manually by uploading the files to your device @ [your.device.ip]/edit and then loading it to your browser using [your.device.ip]/index.html. We're looking into adding it in a more convenient way.
 2. You cannot use the tool @ [ledcalculator.werkstrom.com](https://ledcalculator.werkstrom.com) to upload **directly** to your device. The generated JSON, CURL and Home Assistant code will work just fine though.
 
-### As of V0.14.0-b1 there is a bug in WLED that PixelArtConverter have a workaround for that will probably break your upload if you
+### Possible issue with single addressing after WLED V0.14.0-b1
+As of V0.14.0-b1 there is a bug in WLED that PixelArtConverter have a workaround for that will probably break your upload if you
 1. Use **Single** addressing (and you shouldn't)
 2. Have a later build of WLED.
 It should in practise not be a problem, but keep in mind if you get issues
