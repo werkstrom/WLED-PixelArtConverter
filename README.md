@@ -5,6 +5,8 @@ This is a tool for making it easy to show pixel art on a LED panel run by WLED
 
 Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [GitHub](https://github.com/Aircoookie/WLED)
 
+Please read "Current notes" at the end of the document for known issues and important hints
+
 ## Most notable functions
 
 - You can convert almost any image (tested with at least PNG, JPG, WEBP, GIF)
@@ -58,6 +60,18 @@ The code generated will create a switch for you within home Assistant. What you 
 If you want to create your own or modify/edit then [www.pixilart.com](https://www.pixilart.com) is an excelent tool
 If you want to find old sprites from old games try out [www.spriters-resource.com](https://www.spriters-resource.com) or [opengameart.org](https://opengameart.org/)
 There are also some (a few) here in the folder "examples"
+
+## Current notes
+
+### http, https and the issue with **mixed content** in web browsers
+As a security meassure web browser do not allow you to access resources (web panges and web services) through http (un encrypted) from a page (like PixelArtConverter) when it is loaded through https (encrypted). Also public webservers (like [ledcalculator.werkstrom.com](https://ledcalculator.werkstrom.com)) "must" (in practise) use https. This means two things.
+1. In order to upload directly to your device, PixelArtConverter **must** be loaded in the same security context (http/https) as WLED. Since most WLED devices are local, IoT devices it's mainly http. That's why you need to download the files and run them locally. A more convenient sollution is to have WLED serve you the page directly as that will solve any issues with possible missmatch. As of today you can set this up manually by uploading the files to your device @ [your.device.ip]/edit and then loading it to your browser using [your.device.ip]/index.html. We're looking into adding it in a more convenient way.
+2. You cannot use the tool @ [ledcalculator.werkstrom.com](https://ledcalculator.werkstrom.com) to upload **directly** to your device. The generated JSON, CURL and Home Assistant code will work just fine though.
+
+## As of V0.14.0-b1 there is a bug in WLED that PixelArtConverter have a workaround for that will probably break your upload if you
+1. Use **Single** addressing (and you shouldn't)
+2. Have a later build of WLED.
+It should in practise not be a problem, but keep in mind if you get issues
 
 
 
