@@ -5,7 +5,9 @@ This is a tool for making it easy to show pixel art on a LED panel run by WLED
 
 Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [GitHub](https://github.com/Aircoookie/WLED)
 
-Please read "Current notes" at the end of the document for known issues and important hints
+* Please read "Current notes" at the end of the document for known issues and important hints.*
+
+* *To run* ***directly*** *from WLED device use pixartmin.html according to* ***instructions below.***
 
 ## Most notable functions
 
@@ -21,20 +23,34 @@ Please read "Current notes" at the end of the document for known issues and impo
 
 ## Basic Operations
 
-1. First download the ZIP from here (download[version].zip) and extract it to some where on your computer. Any OS should do really since its purely run inside the browser.
+1. First download the ZIP from here (download[version].zip) and extract it to some where on your computer. Any OS should do really since its purely run inside the browser. *Note: If you are only interested in the fastest and easiest way to run PixelArtCreator. Download the pixartmin.html file only. It has all of the functions but in a much smaller package. Also only one file to move around for you.*
 2. Locate the index.html file. And open it
 3. Select the settings according to your settup and what you want to do.
 4. Select an image (or drag and drop one) and make sure the preview is visable (the very small image). This indicates your image can be read by the tool
 5. Click the button below to convert your image.
-6. You should be able to se a large preview of the generated led data at the bottom of the page
-**A. Direct upload**
-7a. Press the button to send your image to your WLED device.
-8a. Validate the image reached the device and is looking as expected. If not change the parameters in PixelArtConverer and try again.
-9a. Create a preset on your device from the current setting (follow the instructions [here](https://kno.wled.ge/features/presets/) TL;DR: Press the "Create Preset" button.
-10a. If you want to upload the same image to another device, simply change the Device IP/host name and click "Send to device" again
-***B. Use elsewhere*
-8. Copy the generated code if you want to use it outside of the PixelArtConverter/WLED Note: Since you are running the tool localy, you will not be allowed to copy to your clipboard automatically. You will ned to mark the entire text (ctrl+a) and copy it (ctrl+c).
-9. Paste the text into your tool of choice.
+6. You should be able to se a large preview of the generated led data at the bottom of the page  
+
+**A. Direct upload**  
+
+7. Press the button to send your image to your WLED device.
+8. Validate the image reached the device and is looking as expected. If not change the parameters in PixelArtConverer and try again.
+9. Create a preset on your device from the current setting (follow the instructions [here](https://kno.wled.ge/features/presets/) TL;DR: Press the "Create Preset" button.
+10. If you want to upload the same image to another device, simply change the Device IP/host name and click "Send to device" again  
+
+**B. Use elsewhere**  
+
+7. Copy the generated code if you want to use it outside of the PixelArtConverter/WLED Note: Since you are running the tool localy, you will not be allowed to copy to your clipboard automatically. You will ned to mark the entire text (ctrl+a) and copy it (ctrl+c).
+8. Paste the text into your tool of choice.  
+
+## Running directly on your WLED device  
+Most WLED devices are low power very limited compute so it is important to make life as easy as possible for it. That's why there is a one-file-solution for you to use if you want to make PixelArtConverter available by accessing your WLED device. Follow these steps:  
+
+1. Download the *pixartmin.html* file only (not the .zip)
+2. Direct you browser to http://[your.device.ip]/edit
+3. Upload the *pixartmin.html* file using the UI
+4. Direct you browser to http://[your.device.ip]/pixartmin.html  
+
+And you should be good to go.
 
 ## Notes and tips
 
