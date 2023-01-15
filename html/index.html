@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-  
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
@@ -13,7 +12,9 @@
 
   <body>
     <div class = top-part>
-      <h1>Led Matrix Pixel Art Converter</h1>
+      <h1><svg style="width:32px;height:32px" viewBox="0 0 24 24">
+        <path fill="currentColor" d="M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z" />
+    </svg>Led Matrix Pixel Art Converter</h1>
       <h2>Convert image to WLED JSON (pixel art on WLED matrix)</h2>
       <p>
         <table id="fieldTable"  style="width: 100%; table-layout: fixed; align-content: center;">
@@ -60,6 +61,7 @@
               <select id="addressingSelector">
                 <option value="range" selected>Range (10, 17, #f4f4f4)</option>
                 <option value="single">Single (#f4f4f4)</option>
+                <option value="hybrid">Hybrid (#f0f0f0,10, 17, #f4f4f4)</option>
               </select>
             </td>
           </tr>
@@ -68,8 +70,8 @@
               <label for="brightnessNumber">Brightness:</label>
             </td>
             <td style="vertical-align: middle; display: flex; align-items: center;">
-              <input type="range" id="brightnessNumber" min="1" max="255" value="127">
-              <span id="brightnessValue">100</span>
+              <input type="range" id="brightnessNumber" min="1" max="255" value="255">
+              <span id="brightnessValue">255</span>
             </td>
           </tr>
           <tr>
@@ -94,7 +96,7 @@
               <label for="haUID">HA Device Unique ID:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="haUID" value="pixel_art_controller_001a">
+              <input class="fullTextField" type="text" id="haUID" value="pixel_art_controller_001a">
             </td>
           </tr>
           <tr class="ha-hide">
@@ -102,7 +104,7 @@
               <label for="haName">HA Device Name:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="haName" value="Pixel Art Kitchen">
+              <input class="fullTextField" type="text" id="haName" value="Pixel Art Kitchen">
             </td>
           </tr>
           <tr>
@@ -110,61 +112,35 @@
               <label for="curlUrl">Device IP/host name:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="curlUrl" value="">
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle;">
-              <label for="renderCheckbox">Show pixel rendering</label>
-            </td>
-            <td style="vertical-align: middle;">
-              <input type="checkbox" id="renderCheckbox" checked>
-            </td>
-          </tr>
-          <tr>
-            <td style="vertical-align: middle;">
-              <label for="helpCheckbox">Show help/about</label>
-            </td>
-            <td style="vertical-align: middle;">
-              <input type="checkbox" id="helpCheckbox">
+              <input class="fullTextField" type="text" id="curlUrl" value="">
             </td>
           </tr>
         </table>
-        
-        
+        <table  class= "scaleTableClass" id="scaleTable"  style="width: 100%; table-layout: fixed; align-content: center;">
+          <tr>
+            <td style="vertical-align: middle;">
+              <div id="scaleDiv">
+                <svg id="scaleToggle" style="width:36px;height:36px" viewBox="0 0 24 24" onclick="switchScale()">
+                  <path id="scaleTogglePath" fill="currentColor" d="M17,7H7A5,5 0 0,0 2,12A5,5 0 0,0 7,17H17A5,5 0 0,0 22,12A5,5 0 0,0 17,7M7,15A3,3 0 0,1 4,12A3,3 0 0,1 7,9A3,3 0 0,1 10,12A3,3 0 0,1 7,15Z" />
+                </svg>
+                &nbsp;&nbsp;&nbsp;
+                <svg id="scaleSvg" style="width:36px;height:36px" viewBox="0 0 24 24" onclick="switchScale()">
+                  <path id="scalePath" fill="currentColor" d="M21,15H23V17H21V15M21,11H23V13H21V11M23,19H21V21C22,21 23,20 23,19M13,3H15V5H13V3M21,7H23V9H21V7M21,3V5H23C23,4 22,3 21,3M1,7H3V9H1V7M17,3H19V5H17V3M17,19H19V21H17V19M3,3C2,3 1,4 1,5H3V3M9,3H11V5H9V3M5,3H7V5H5V3M1,11V19A2,2 0 0,0 3,21H15V11H1M3,19L5.5,15.79L7.29,17.94L9.79,14.72L13,19H3Z" />
+                </svg>
+              </div>
+            </td>
+            <td style="vertical-align: middle;">
+              <div id="sizeDiv" style="display: none;">
+                <label for="sizeX">X : </label> &nbsp;<input class="sizeInputFields" type="number" id="sizeX" value="0">
+                &nbsp;&nbsp;&nbsp;
+                <label for="sizeY">Y : </label> &nbsp;<input class="sizeInputFields" type="number" id="sizeY" value="0">
+              </div>
+            </td>
+          </tr>
+        </table>
       </p>
-      </p>
-      
-      <div id="help-container" style="display: none">>
-        <p> 
-          1a. Create a GIF or PNG ( <a href="https://www.pixilart.com/" target="_blank">www.pixilart.com</a> ) <br> 
-          1b. Download some image that fits your led matrix ( <a href="https://www.spriters-resource.com/" target="_blank">www.spriters-resource.com</a>) <br> 
-          2. Upload the image using the file picker or drag-and-drop it <br> 
-          3. Select the led setup that matches your WLED. ( <a href="https://kno.wled.ge/advanced/mapping/" target="_blank">https://kno.wled.ge</a>) <br>
-          4. Select Otput format. <br>
-          - WLED is pure JSON in the way the documentation descripbes it.<br>&nbsp;&nbsp;&nbsp;Use in WLED (presets?)<br>
-          - CURL is formated as a curl command you can past into a command <br>&nbsp;&nbsp;&nbsp;window and test yor led matrix<br>
-          - Home Assistant is teh full YAML you can past into your <br>&nbsp;&nbsp;&nbsp;configuration.yaml in Home Assistant<br>
-          5. Select Color format. Select HEX if possible (more efficiant)<br>
-          6. Select Addressing scheme. Send all pixels individually or try to <br>&nbsp;&nbsp;&nbsp;send ranges of the same color.<br>
-          7. Select brighness value<br>
-          8. According to docs WLED can handle max 256 colors/command. So the JSON is <br>&nbsp;&nbsp;&nbsp;split if you have larger images. <br>&nbsp;&nbsp;&nbsp;Lower this value if you have issues.<br>
-          9. Set Home Assistant Device values if you are going to use HA<br>
-          10. Set the device IP/host for HA and CURL to work<br>
-          11. Press the convert button <br> 
-          12. Copy the generated JSON and put it somewhere in WLED<br>&nbsp;&nbsp;&nbsp;, Run CURL or paste to Home Assistant
-        </p>
-        <p> 
-          This tool is a proof of concept and work in progress. As you might expect, there is absolutely no warranty, what so ever. 
-        </p>
-        <p>
-          The Arcade font is copyright (c) Jakob Fischer at www.pizzadude.dk,  all rights reserved. Do not distribute without the author's permission.
-        </p>
-        <p>
-          It should be said that I don&lsquo;t acctually own a setup for this. I basically did it to play around over new years. But I have ordered a matrix now, and a small controller chip... let's see how that works out. 
-        </p>
-      </div>
-      
+
+    </p>
       <p>
         <label for="file-picker">
           <div id="drop-zone">    
@@ -177,32 +153,31 @@
       <p>
         <input type="file" id="file-picker" style="display: none;">
         <div style="width: 100%; text-align: center;" >
-          <img id="preview" style="display: block; margin: 0 auto;"><br>
+          <img id="preview" style="display: block; margin: 0 auto;">
+          <img id="newimage" style="display: block; margin: 0 auto;"><br>
         </div>
         
-        <form id="form">
-          <input id="submitConvert" type="submit" value="Convert to JSON for WLED" style="display: none">
-        </form>
+        <div id="submitConvertDiv" style="display: none;">
+          <button id="convertbutton" class="buttonclass"></button>
+        </div>
         
         <div id="raw-image-container" style="display: none">
           <img id="image" src="" alt="RawImage image">
         </div>
+        
       </p>
       
-      <div id="image-container" style="display: none">
+      <div id="image-container" style="display: none;">
         <div id="image-info" style="display: none"></div>
-          <p>
-            <div>
-              <textarea id="JSONled"></textarea>
-              <br>
-              <button id="copyJSONledbutton" >Copy led-JSON to Clipboard</button>
-              <br>
-              <button id="sendJSONledbutton" >Send to Device</button>
-              <br>
-            </div>
-          </p>
-        </div>
+        <textarea id="JSONled"></textarea>
       </div>
+
+      <div id="button-container" style="display: none;">
+        <button id="copyJSONledbutton" class="buttonclass"></button>
+        <div class="gap"></div>
+        <button id="sendJSONledbutton" class="buttonclass"></button>
+      </div>
+
     </div>
     <div id=bottom-part style="display: none" class=bottom-part></div>
           <canvas id="pixelCanvas"></canvas>
@@ -210,9 +185,12 @@
         
 
     <script>
-      //Code for dynamically loading the scripts as to prevent caching. Remove in production.
-      function loadFiles(fileNames) {
-        fileNames.forEach(function(fileName) {
+      function loadFiles(fileNames, index) {
+          if (index === fileNames.length) {
+              return;
+          }
+
+          var fileName = fileNames[index];
           var fileExt = fileName.split('.').pop();
           var element;
           if (fileExt === 'js') {
@@ -224,12 +202,16 @@
               element.rel = 'stylesheet';
               element.href = fileName + '?time=' + new Date().getTime();
           }
+
+          element.onload = function() {
+              loadFiles(fileNames, index + 1);
+          }
+
           document.getElementsByTagName('head')[0].appendChild(element);
-        });
       }
 
-    var files = ["statics.js", "getPixelValues.js", "boxdraw.js", "index.js", "styles.css"];
-    loadFiles(files);
+      var files = ["statics.js", "getPixelValues.js", "boxdraw.js", "index.js", "styles.css"];
+      loadFiles(files, 0);
 
     </script>
   </body>

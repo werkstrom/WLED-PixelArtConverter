@@ -1,28 +1,29 @@
 //Start up code
-console.log(location.host);
 document.getElementById('curlUrl').value = location.host;
 let httpArray = [];
 
 
 //On submit button pressed =======================
-document.getElementById('form').addEventListener('submit', function(event) {
-  
-  event.preventDefault();
 
+
+document.getElementById("convertbutton").addEventListener("click", function() {
+  
   let base64Image = document.getElementById('preview').src;
   if (isValidBase64Gif(base64Image)) {
     document.getElementById('image').src = base64Image;
     getPixelRGBValues(base64Image);
     document.getElementById('image-container').style.display = "block"
+    document.getElementById("button-container").style.display = "";
+
   } 
   else {
     let infoDiv = document.getElementById('image-info');
-    let imageInfo = '<p><b>WARNING!</b> File does not appear to be a valid GIF image</p>'
+    let imageInfo = '<p><b>WARNING!</b> File does not appear to be a valid image</p>'
     infoDiv.innerHTML = imageInfo;
     infoDiv.style.display = "block"
     document.getElementById('image-container').style.display = "none";
     document.getElementById('JSONled').value = '';
-    console.log("The string '" + base64Image + "' is not a valid base64 GIF image.");
+    console.log("The string '" + base64Image + "' is not a valid base64 image.");
   }
 
 });
@@ -30,12 +31,16 @@ document.getElementById('form').addEventListener('submit', function(event) {
 // Code for copying the generated string to clipboard
 
 copyJSONledbutton.addEventListener('click', async () => {
+  let JSONled = document.getElementById('JSONled');
   JSONled.select();
   try {
-    await navigator.clipboard.writeText('test text');
-    console.log('Text copied to clipboard');
+    await navigator.clipboard.writeText(JSONled.value);
   } catch (err) {
-    console.error('Failed to copy text: ', err);
+    try {
+      await document.execCommand("copy");
+    } catch (err) {
+      console.error('Failed to copy text: ', err);
+    }
   }
 });
 
@@ -67,18 +72,6 @@ async function postPixels() {
     }
   }
 }
-
-let helpCheckbox = document.getElementById("helpCheckbox");
-let helpDiv = document.getElementById("help-container");
-
-helpCheckbox.addEventListener("change", function() {
-  if (helpCheckbox.checked) {
-    helpDiv.style.display = "block";
-  } else {
-    helpDiv.style.display = "none";
-  }
-});
-
 //File uploader code
 const dropZone = document.getElementById('drop-zone');
 const filePicker = document.getElementById('file-picker');
@@ -136,7 +129,7 @@ function updatePreview(file) {
   reader.onload = function() {
     // Update the preview image
     preview.src = reader.result;
-    document.getElementById("submitConvert").style.display = "block";
+    document.getElementById("submitConvertDiv").style.display = "";
   };
   reader.readAsDataURL(file);
 }
@@ -149,7 +142,7 @@ function isValidBase64Gif(string) {
   const base64jpgPattern = /^data:image\/jpg;base64,([A-Za-z0-9+/:]{4})*([A-Za-z0-9+/:]{3}=|[A-Za-z0-9+/:]{2}==)?$/;
   const base64webpPattern = /^data:image\/webp;base64,([A-Za-z0-9+/:]{4})*([A-Za-z0-9+/:]{3}=|[A-Za-z0-9+/:]{2}==)?$/;
   */
-  //REMOVED, Any image appear to work as long as it can be drawn to the canvas. Leavingg code in for future use, possibly
+  //REMOVED, Any image appear to work as long as it can be drawn to the canvas. Leaving code in for future use, possibly
   if (1==1 || base64gifPattern.test(string) || base64pngPattern.test(string) || base64jpgPattern.test(string) || base64webpPattern.test(string)) {
     return true;
   }
@@ -177,3 +170,30 @@ formatSelector.addEventListener("change", function() {
          hideableRows[i].classList.toggle("hide", this.value !== "ha");
      }
  });
+
+function switchScale() {
+  let scalePath = document.getElementById("scalePath");
+  let scaleTogglePath = document.getElementById("scaleTogglePath");
+  let color = scalePath.getAttribute("fill");
+  let d = ''
+  if (color === accentColor) {
+    color = accentTextColor;
+    d = scaleToggleOffd
+    document.getElementById("sizeDiv").style.display = "none";
+    // Set values to actual XY of image, if possible
+  } else {
+    color = accentColor;
+    d = scaleToggleOnd
+    document.getElementById("sizeDiv").style.display = "";
+  }
+  scalePath.setAttribute("fill", color);
+  scaleTogglePath.setAttribute("fill", color);
+  scaleTogglePath.setAttribute("d", d);
+}
+ 
+ document.getElementById("convertbutton").innerHTML = 
+ '<svg style="width:36px;height:36px" viewBox="0 0 24 24"><path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" /> </svg>&nbsp; Convert to WLED JSON '; 
+ document.getElementById("copyJSONledbutton").innerHTML = 
+ '<svg class="svg-icon" style="width:36px;height:36px" viewBox="0 0 24 24"> <path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z" /> </svg>&nbsp; Copy to clipboard'; 
+ document.getElementById("sendJSONledbutton").innerHTML = 
+'<svg class="svg-icon" style="width:36px;height:36px" viewBox="0 0 24 24"> <path fill="currentColor" d="M6.5 20Q4.22 20 2.61 18.43 1 16.85 1 14.58 1 12.63 2.17 11.1 3.35 9.57 5.25 9.15 5.88 6.85 7.75 5.43 9.63 4 12 4 14.93 4 16.96 6.04 19 8.07 19 11 20.73 11.2 21.86 12.5 23 13.78 23 15.5 23 17.38 21.69 18.69 20.38 20 18.5 20H13Q12.18 20 11.59 19.41 11 18.83 11 18V12.85L9.4 14.4L8 13L12 9L16 13L14.6 14.4L13 12.85V18H18.5Q19.55 18 20.27 17.27 21 16.55 21 15.5 21 14.45 20.27 13.73 19.55 13 18.5 13H17V11Q17 8.93 15.54 7.46 14.08 6 12 6 9.93 6 8.46 7.46 7 8.93 7 11H6.5Q5.05 11 4.03 12.03 3 13.05 3 14.5 3 15.95 4.03 17 5.05 18 6.5 18H9V20M12 13Z" /> </svg>&nbsp; Send to device';

@@ -3,7 +3,7 @@ function getPixelRGBValues(base64Image) {
   const copyJSONledbutton = document.getElementById('copyJSONledbutton');
   const JSONled = document.getElementById('JSONled');
   const maxNoOfColorsInCommandSting = document.getElementById('colorLimitNumber').value;
-
+  let hybridAddressing = false;
   let selectedIndex = -1;
 
   let selector = document.getElementById("formatSelector");
@@ -23,9 +23,11 @@ function getPixelRGBValues(base64Image) {
 
   selector = document.getElementById("addressingSelector");
   selectedIndex = selector.selectedIndex;
-  let segmentValueCheck = true;
+  let segmentValueCheck = true; //If Range or Hybrid
   if (selector.options[selectedIndex].value == 'single'){
     segmentValueCheck = false
+  } else if (selector.options[selectedIndex].value == 'hybrid'){
+    hybridAddressing = true;
   }
 
   let segmentString = ''
@@ -54,16 +56,29 @@ function getPixelRGBValues(base64Image) {
 
   // Wait for the image to load before drawing it onto the canvas
   image.onload = function() {
-    // Set the canvas size to the same as the image
-    canvas.width = image.width;
-    canvas.height = image.height;
-    imageInfo = '<p>Width: ' + image.width + ', Height: ' + image.height + ' (make sure this matches your led matrix setup)</p>'
+    
+    let scalePath = document.getElementById("scalePath");
+    let color = scalePath.getAttribute("fill");
+    let sizeX = document.getElementById("sizeX").value;
+    let sizeY = document.getElementById("sizeY").value;
+
+    if (color != accentColor || sizeX < 1 || sizeY < 1){
+      //image will not be rezised Set desitred size to original size
+      sizeX = image.width;
+      sizeY = image.height;
+    }
+
+    // Set the canvas size to the same as the desired image size
+    canvas.width = sizeX;
+    canvas.height = sizeY;
+
+    imageInfo = '<p>Width: ' + sizeX + ', Height: ' + image.height + ' (make sure this matches your led matrix setup)</p>'
 
     // Draw the image onto the canvas
-    context.drawImage(image, 0, 0);
+    context.drawImage(image, 0, 0, sizeX, sizeY);
 
     // Get the pixel data from the canvas
-    var pixelData = context.getImageData(0, 0, image.width, image.height).data;
+    var pixelData = context.getImageData(0, 0, sizeX, sizeY).data;
   
     // Create an array to hold the RGB values of each pixel
     var pixelRGBValues = [];
@@ -83,7 +98,7 @@ function getPixelRGBValues(base64Image) {
       var a = pixelData[i + 3];
 
       let pixel = i/4
-      let row = Math.floor(pixel/image.width);
+      let row = Math.floor(pixel/sizeX);
       let led = pixel;
       if (ledSetupSelection == 'matrix'){
           //Do nothing, the matrix is set upp like the index in the image
@@ -99,10 +114,10 @@ function getPixelRGBValues(base64Image) {
           //Setup is traditional zigzag
           //Row is right to left
           //Invert index of row for led
-          let indexOnRow = led - (row * image.width);
-          let maxIndexOnRow = image.width - 1;
+          let indexOnRow = led - (row * sizeX);
+          let maxIndexOnRow = sizeX - 1;
           let reversedIndexOnRow = maxIndexOnRow - indexOnRow;
-          led = (row * image.width) + reversedIndexOnRow;
+          led = (row * sizeX) + reversedIndexOnRow;
       }
 
       // Add the RGB values to the pixel RGB values array
@@ -152,19 +167,45 @@ function getPixelRGBValues(base64Image) {
             //Next pixel has new color
             //The current segment ends with this pixel
             segmentEnd = i + 1 //WLED wants the NEXT LED as the stop led...
-            segmentString = segmentStart + ',' + segmentEnd + ',';
+            if (segmentStart == i && hybridAddressing){
+              //If only one led/pixel, no segment info needed
+              if (JSONledString == ''){
+                //If addressing is single, we need to start every command with a starting possition
+                segmentString = '' + i + ',';
+                //Fixed to b2
+              } else{
+                segmentString = ''
+              }
+            }
+            else {
+              segmentString = segmentStart + ',' + segmentEnd + ',';
+            }
           }
 
         } else {
           //This is the last pixel, so the segment must end
           segmentEnd = i + 1;
-          segmentString = segmentStart + ',' + segmentEnd + ',';
+
+          if (segmentStart + 1 == segmentEnd && hybridAddressing){
+            //If only one led/pixel, no segment info needed
+            if (JSONledString == ''){
+              //If addressing is single, we need to start every command with a starting possition
+              segmentString = '' + i + ',';
+              //Fixed to b2
+            } else{
+              segmentString = ''
+            }
+          }
+          else {
+            segmentString = segmentStart + ',' + segmentEnd + ','; 
+          }
         }
       } else{
         //Write every pixel
         if (JSONledString == ''){
-          //If addressing is single, we ned to start every command with a starting possition
-          JSONledString = i + ', \'dummy\',';
+          //If addressing is single, we need to start every command with a starting possition
+          JSONledString = i
+          //Fixed to b2
         }
 
         segmentStart = i
@@ -187,6 +228,8 @@ function getPixelRGBValues(base64Image) {
         } else{
           //do nothing, allready set
         }
+
+        // Check if start and end is the same, in which case remove
 
         JSONledString = JSONledString + segmentString + colorSeparatorStart + colorValueString + colorSeparatorEnd;
 
@@ -247,7 +290,8 @@ function getPixelRGBValues(base64Image) {
     infoDiv.innerHTML = imageInfo;
     canvasDiv.style.display = "block"
 
+
     //Drawing the image
-    drawBoxes(pixelRGBValues, image.width, image.width);
+    drawBoxes(pixelRGBValues, sizeX, sizeY);
   }
 }

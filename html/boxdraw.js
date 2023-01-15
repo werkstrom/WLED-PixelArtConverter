@@ -60,41 +60,32 @@ function drawBoxes(inputPixelArray, widthPixels, heightPixels) {
 }
 
 function drawBackground() {
-    const grid = document.createElement("div");
-    grid.id = "grid";
-    grid.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, 20px);
-        grid-template-rows: repeat(auto-fill, 20px);
-        grid-gap: 0px;
-    `;
-  
-    const boxSize = 20;
-    const boxCount = Math.ceil(window.innerWidth / boxSize) * Math.ceil(window.innerHeight / boxSize);;
+  const grid = document.createElement("div");
+  grid.id = "grid";
+  grid.classList.add("grid-class");
+  grid.style.cssText = "";
 
-    for (let i = 0; i < boxCount; i++) {
-      const box = document.createElement("div");
-      box.classList.add("box");
-      box.style.backgroundColor = getRandomColor();
-      grid.appendChild(box);
-    }
-    grid.style.zIndex = -1;
-    document.body.appendChild(grid);
+  const boxSize = 20;
+  const boxCount = Math.ceil(window.innerWidth / boxSize) * Math.ceil(window.innerHeight / boxSize);;
+
+  for (let i = 0; i < boxCount; i++) {
+  const box = document.createElement("div");
+  box.classList.add("box");
+  box.style.backgroundColor = getRandomColor();
+  grid.appendChild(box);
   }
-  
-  function getRandomColor() {
-    const letters = "0123456789ABCDEF";
-    let color = "rgba(";
-    for (let i = 0; i < 3; i++) {
-      color += Math.floor(Math.random() * 256) + ",";
-    }
-    color += "0.05)";
-    return color;
+  grid.style.zIndex = -1;
+  document.body.appendChild(grid);
+}
+
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "rgba(";
+  for (let i = 0; i < 3; i++) {
+  color += Math.floor(Math.random() * 256) + ",";
   }
+  color += "0.05)";
+  return color;
+}
 
   window.drawBackground = drawBackground;
