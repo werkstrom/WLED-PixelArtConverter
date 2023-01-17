@@ -20,15 +20,15 @@ body {
 h1 {
   font-size: 2.3em;
   color: rgb(126, 76, 128);
-  margin: 20px 0;
+  margin: 1px 0;
   font-family: 'Arcade', Arial, sans-serif;
   line-height: 0.5;
-  text-align: center;
+  /*text-align: center;*/
 }
 h2 {
-  font-size: 1.3em;
+  font-size: 1.1em;
   color: rgba(126, 76, 128, 0.61);
-  margin: 20px 0;
+  margin: 1px 0;
   font-family: 'Arcade', Arial, sans-serif;
   line-height: 0.5;
   text-align: center;
@@ -144,7 +144,7 @@ input[type="range"]::-webkit-slider-thumb{
   width: 100%;
   border-radius: 0px;
   font-family: 'Arcade', Arial, sans-serif;
-  font-size: 1.3em;
+  font-size: 1em;
   color: rgb(119, 119, 119);
   display: flex;
   align-items: center;

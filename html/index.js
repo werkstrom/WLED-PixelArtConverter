@@ -1,6 +1,28 @@
 //Start up code
 document.getElementById('curlUrl').value = location.host;
+
+let devMode = false;
+const urlParams = new URLSearchParams(window.location.search);
+if(urlParams.has('dev')){
+  devMode = true;
+}
+if(devMode){
+  console.log('Developer mode active. Experimental and unstable functions active.')
+} else{
+console.log('Developer mode inactive. Append "?dev" to the URL.')
+}
+
+if(devMode){
+  document.getElementById("fileJSONledbutton").style.display = 'buttonclass'
+  document.getElementById("gap2").style.display = 'gap'
+} else {
+  document.getElementById("fileJSONledbutton").style.display = 'none'
+  document.getElementById("gap2").style.display = 'none'
+}
+
+
 let httpArray = [];
+let fileJSON = '';
 
 
 //On submit button pressed =======================
@@ -49,6 +71,17 @@ sendJSONledbutton.addEventListener('click', async () => {
     alert('Will only be available when served over http (or WLED is run over https)');
   } else {
     postPixels();
+  }
+});
+
+fileJSONledbutton.addEventListener('click', async () => {
+  if (window.location.protocol === "https:") {
+    alert('Will only be available when served over http (or WLED is run over https)');
+  } else {
+    let JSONFileName = 'TheName.json'
+    let urlString = 'http://'+document.getElementById('curlUrl').value+'/upload'
+
+    sendAsFile(fileJSON, JSONFileName, urlString);
   }
 });
 
@@ -190,7 +223,32 @@ function switchScale() {
   scaleTogglePath.setAttribute("fill", color);
   scaleTogglePath.setAttribute("d", d);
 }
- 
+
+
+function sendAsFile(jsonStringInput, fileName, urlString) {
+  //var jsonString = JSON.stringify({name: "value"});
+  var file = new Blob([jsonStringInput], {type: 'application/json'});
+  console.log(jsonStringInput)
+  console.log(fileName);
+  console.log(urlString);
+  
+  var formData = new FormData();
+  formData.append('file', file, fileName);
+
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', urlString, true);
+  xhr.onload = function() {
+    if (xhr.status === 200) {
+      console.log('File uploaded successfully!');
+    } else {
+      console.log('File upload failed!');
+    }
+  };
+  xhr.send(formData);
+}
+
+document.getElementById("fileJSONledbutton").innerHTML = 
+'<svg style="width:36px;height:36px" viewBox="0 0 24 24"><path fill="currentColor" d="M20 18H4V8H20M20 6H12L10 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V8A2 2 0 0 0 20 6M16 17H14V13H11L15 9L19 13H16Z" /></svg>&nbsp; File to device'
  document.getElementById("convertbutton").innerHTML = 
  '<svg style="width:36px;height:36px" viewBox="0 0 24 24"><path fill="currentColor" d="M12,6V9L16,5L12,1V4A8,8 0 0,0 4,12C4,13.57 4.46,15.03 5.24,16.26L6.7,14.8C6.25,13.97 6,13 6,12A6,6 0 0,1 12,6M18.76,7.74L17.3,9.2C17.74,10.04 18,11 18,12A6,6 0 0,1 12,18V15L8,19L12,23V20A8,8 0 0,0 20,12C20,10.43 19.54,8.97 18.76,7.74Z" /> </svg>&nbsp; Convert to WLED JSON '; 
  document.getElementById("copyJSONledbutton").innerHTML = 

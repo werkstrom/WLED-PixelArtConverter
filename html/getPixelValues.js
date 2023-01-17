@@ -1,8 +1,11 @@
 function getPixelRGBValues(base64Image) {
   httpArray = [];
-  const copyJSONledbutton = document.getElementById('copyJSONledbutton');
+  fileJSON = JSONledStringStart + document.getElementById('brightnessNumber').value + JSONledStringMid1;
+
+  //const copyJSONledbutton = document.getElementById('copyJSONledbutton');
   const JSONled = document.getElementById('JSONled');
   const maxNoOfColorsInCommandSting = document.getElementById('colorLimitNumber').value;
+  
   let hybridAddressing = false;
   let selectedIndex = -1;
 
@@ -72,7 +75,7 @@ function getPixelRGBValues(base64Image) {
     canvas.width = sizeX;
     canvas.height = sizeY;
 
-    imageInfo = '<p>Width: ' + sizeX + ', Height: ' + image.height + ' (make sure this matches your led matrix setup)</p>'
+    imageInfo = '<p>Width: ' + sizeX + ', Height: ' + sizeY + ' (make sure this matches your led matrix setup)</p>'
 
     // Draw the image onto the canvas
     context.drawImage(image, 0, 0, sizeX, sizeY);
@@ -232,6 +235,7 @@ function getPixelRGBValues(base64Image) {
         // Check if start and end is the same, in which case remove
 
         JSONledString = JSONledString + segmentString + colorSeparatorStart + colorValueString + colorSeparatorEnd;
+        fileJSON = JSONledString + segmentString + colorSeparatorStart + colorValueString + colorSeparatorEnd;
 
         curentColorIndex = curentColorIndex + 1; // We've just added a new color to the string so up the count with one
 
@@ -281,6 +285,8 @@ function getPixelRGBValues(base64Image) {
       JSONled.value = 'ERROR!/n' + formatSelection + ' is an unknown format.'
     }
     
+    fileJSON = fileJSON + JSONledStringEnd;
+
     let infoDiv = document.getElementById('image-info');
     let canvasDiv = document.getElementById('image-info');
     if (hasTransparency){
