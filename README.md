@@ -79,6 +79,10 @@ If you want to create your own or modify/edit then [www.pixilart.com](https://ww
 If you want to find old sprites from old games try out [www.spriters-resource.com](https://www.spriters-resource.com) or [opengameart.org](https://opengameart.org/)
 There are also some (a few) here in the folder "examples"
 
+## Developer mode  
+Some experimental features are activated in Developer Mode. Instability should be expected and not all features are fully implemented. Use with even ***more*** **at your own risk** than PixelArtConverter comes with in the first place.  
+To activate appent "?dev" to the url, like http://[your-device-ip]/pixartmin.html?dev
+
 ## Current notes
 
 ### http, https and the issue with **mixed content** in web browsers
