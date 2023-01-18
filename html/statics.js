@@ -10,10 +10,11 @@ const haMid4 = '\n      command_off: >\n        curl -X POST "http://';
 const haEnd = '/json/state" -d \'{"on":false}\' -H "Content-Type: application/json"';
 const haCommandLeading = '        ';
 
-const JSONledStringStart = '{"on":true, "bri":';
-const JSONledStringMid1 = ', "seg":{"i":[';
-const JSONledShortStringStart = '{';
-const JSONledShortStringMid1 = '"seg":{"i":[';
+const JSONledStringStart = '{"on":true,"bri":';
+const JSONledStringMid1 = ',"seg":{"id":';
+const JSONledStringMid2 = ',"i":[';
+// const JSONledShortStringStart = '{';
+// const JSONledShortStringMid1 = '"seg":{"i":[';
 const JSONledStringEnd = ']}}';
 
 var accentColor = '#7E4C80';

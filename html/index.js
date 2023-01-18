@@ -247,6 +247,39 @@ function sendAsFile(jsonStringInput, fileName, urlString) {
   xhr.send(formData);
 }
 
+function generateSegmentOptions(array) {
+  //This function is prepared for a name property on each segment for easier selection
+  //Currently the name is generated generically based on index
+  var select = document.getElementById("targetSegment");
+  select.innerHTML = "";
+  for (var i = 0; i < array.length; i++) {
+      var option = document.createElement("option");
+      option.value = array[i].value;
+      option.text = array[i].text;
+      select.appendChild(option);
+      if(i === 0) {
+        option.selected = true;
+      }
+    }
+}
+
+//Initial population of segment selection
+function generateSegmentArray(noOfSegments) {
+  var arr = [];
+  for (var i = 0; i < noOfSegments; i++) {
+      arr.push({
+          value: i,
+          text: "Segment index " + i
+      });
+  }
+  return arr;
+}
+
+var segmentData = generateSegmentArray(10);
+// [{"value":0, "text": "Segment index 0"},{"value":1, "text": "Segment index 1"},{"value":2, "text": "Segment index 2"},{"value":3, "text": "Segment index 3"}];
+
+generateSegmentOptions(segmentData);
+
 document.getElementById("fileJSONledbutton").innerHTML = 
 '<svg style="width:36px;height:36px" viewBox="0 0 24 24"><path fill="currentColor" d="M20 18H4V8H20M20 6H12L10 4H4A2 2 0 0 0 2 6V18A2 2 0 0 0 4 20H20A2 2 0 0 0 22 18V8A2 2 0 0 0 20 6M16 17H14V13H11L15 9L19 13H16Z" /></svg>&nbsp; File to device'
  document.getElementById("convertbutton").innerHTML = 

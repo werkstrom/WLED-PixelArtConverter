@@ -1,6 +1,6 @@
 function getPixelRGBValues(base64Image) {
   httpArray = [];
-  fileJSON = JSONledStringStart + document.getElementById('brightnessNumber').value + JSONledStringMid1;
+  fileJSON = JSONledStringStart + document.getElementById('brightnessNumber').value + JSONledStringMid1 + document.getElementById('targetSegment').value + JSONledStringMid2;
 
   //const copyJSONledbutton = document.getElementById('copyJSONledbutton');
   const JSONled = document.getElementById('JSONled');
@@ -258,7 +258,7 @@ function getPixelRGBValues(base64Image) {
 
     //For evry commandString in the  array
     for (let i = 0; i < commandArray.length; i++) {
-      let thisJSONledString = JSONledStringStart + document.getElementById('brightnessNumber').value + JSONledStringMid1 + commandArray[i] + JSONledStringEnd;
+      let thisJSONledString = JSONledStringStart + document.getElementById('brightnessNumber').value + JSONledStringMid1 + document.getElementById('targetSegment').value + JSONledStringMid2 + commandArray[i] + JSONledStringEnd;
       httpArray.push(thisJSONledString);
 
       let thiscurlString = curlStart + document.getElementById('curlUrl').value + curlMid1 + thisJSONledString + curlEnd;

@@ -21,6 +21,7 @@
         </h1>
     </div>
       <h2>Convert image to WLED JSON (pixel art on WLED matrix)</h2>
+      <h3>Version 1.0.3 - Help/About</h3>
       <p>
         <table id="fieldTable"  style="width: 100%; table-layout: fixed; align-content: center;">
           <tr>
@@ -120,6 +121,15 @@
               <input class="fullTextField" type="text" id="curlUrl" value="">
             </td>
           </tr>
+          <tr>
+            <td style="vertical-align: middle;">
+              <label for="targetSegment">Target segment id:</label>
+            </td>
+            <td style="vertical-align: middle;">
+              <select id="targetSegment">
+              </select>
+            </td>
+          </tr>
         </table>
         <table  class= "scaleTableClass" id="scaleTable"  style="width: 100%; table-layout: fixed; align-content: center;">
           <tr>
@@ -184,7 +194,9 @@
         <div id = "gap2" class="gap"></div>
         <button id="fileJSONledbutton" class="buttonclass"></button>
       </div>
-
+      <div>
+        <h3>Version 1.0.3 - <a href="https://github.com/werkstrom/WLED-PixelArtConverter/blob/main/README.md" target="_blank">Help/About</a></h3>
+      </div>
     </div>
     <div id=bottom-part style="display: none" class=bottom-part></div>
           <canvas id="pixelCanvas"></canvas>

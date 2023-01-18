@@ -33,6 +33,14 @@ h2 {
   line-height: 0.5;
   text-align: center;
 }
+h3 {
+  font-size: 0.7em;
+  color: rgba(126, 76, 128, 0.61);
+  margin: 1px 0;
+  font-family: 'Arcade', Arial, sans-serif;
+  line-height: 1.4;
+  text-align: center;
+}
 
 p {
   font-size: 1.2em;
@@ -229,4 +237,27 @@ textarea {
   font-family: 'Arcade', Arial, sans-serif;
   font-size: 15px;
   color: rgb(119, 119, 119);
+}
+a:link {
+  color: rgba(126, 76, 128, 0.61);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgba(126, 76, 128, 0.61);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(126, 76, 128);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:active {
+  color: rgba(126, 76, 128, 0.61);
+  background-color: transparent;
+  text-decoration: none;
 }
