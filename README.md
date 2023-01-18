@@ -71,6 +71,9 @@ As of version 1.0.1 there is a hybrid mode that utilizes the ability to mix sing
 ### Number of colors per command
 WLED is running on very limited devices, and you're throwing a massive amount af data on them in a very short time. To make things easy on the devices, limit your number of colors. You can test with your device how much it can handle. But this will vary.
 
+## Target segment id  
+If multiple segemnts are set up in WLED you can send it to any one of them. As of writing the function is experimentl as there is some issue we are trying to identify the source of. Only sending to segment 0 works.
+
 ### Home Assistant
 The code generated will create a switch for you within home Assistant. What you do with it, how you trigger it, how you make it look in Home Assistant... Anything you wonder about that. Head over to the [Home Assistant Forum](https://community.home-assistant.io/)
 
