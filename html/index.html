@@ -14,14 +14,40 @@
     <div class="top-part" >
       <div style="display: flex; justify-content: center;">
         <h1 style="display: flex; align-items: center;">
-            <svg style="width:36px;height:36px" viewBox="0 0 24 24">
-              <path fill="currentColor" d="M12 16C13.1 16 14 16.9 14 18S13.1 20 12 20 10 19.1 10 18 10.9 16 12 16M12 10C13.1 10 14 10.9 14 12S13.1 14 12 14 10 13.1 10 12 10.9 10 12 10M12 4C13.1 4 14 4.9 14 6S13.1 8 12 8 10 7.1 10 6 10.9 4 12 4M6 16C7.1 16 8 16.9 8 18S7.1 20 6 20 4 19.1 4 18 4.9 16 6 16M6 10C7.1 10 8 10.9 8 12S7.1 14 6 14 4 13.1 4 12 4.9 10 6 10M6 4C7.1 4 8 4.9 8 6S7.1 8 6 8 4 7.1 4 6 4.9 4 6 4M18 16C19.1 16 20 16.9 20 18S19.1 20 18 20 16 19.1 16 18 16.9 16 18 16M18 10C19.1 10 20 10.9 20 12S19.1 14 18 14 16 13.1 16 12 16.9 10 18 10M18 4C19.1 4 20 4.9 20 6S19.1 8 18 8 16 7.1 16 6 16.9 4 18 4Z" />
-            </svg>
+          <svg style="width:36px;height:36px" id="logomatrix" viewBox="0 0 24 24">
+            <path fill="#7e4c80" d="M6,5
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc1"/>
+            <path fill="#7e4c80" d="M12,5
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc2"/>
+            <path fill="#7e4c80" d="M18,5
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc3"/>
+            <path fill="#7e4c80" d="M6,11
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc4"/>
+            <path fill="#7e4c80" d="M12,11
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc5"/>
+            <path fill="#7e4c80" d="M18,11
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc6"/>
+            <path fill="#7e4c80" d="M6,17
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc7"/>
+            <path fill="#7e4c80" d="M12,17
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc8"/>
+            <path fill="#7e4c80" d="M18,17
+                    a2,2 0 1,0 4,0
+                    a2,2 0 1,0 -4,0" id="sc9"/>
+          </svg>
+
             Led Matrix Pixel Art Converter
         </h1>
-    </div>
+      </div>
       <h2>Convert image to WLED JSON (pixel art on WLED matrix)</h2>
-      <h3>Version 1.0.3 - Help/About</h3>
       <p>
         <table id="fieldTable"  style="width: 100%; table-layout: fixed; align-content: center;">
           <tr>
@@ -31,8 +57,8 @@
             <td style="vertical-align: middle;">
               <select id="ledSetupSelector">
                 <option value="matrix" selected>2D Matrix</option>
-                <option value="r2l">Serpentine, first row right to left <-</option>
-                <option value="l2r">Serpentine, first row left to right -></option>
+                <option value="r2l">Serpentine, first row right to left &lt;-</option>
+                <option value="l2r">Serpentine, first row left to right -&gt;</option>
               </select>
             </td>
           </tr>        
@@ -94,7 +120,7 @@
               <label for="haID">HA Device ID:</label>
             </td>
             <td style="vertical-align: middle;">
-              <input type="text" id="haID" value="pixel_art_controller_001">
+              <input class="fullTextField" type="text" id="haID" value="pixel_art_controller_001">
             </td>
           </tr>
           <tr class="ha-hide">
@@ -155,7 +181,6 @@
         </table>
       </p>
 
-    </p>
       <p>
         <label for="file-picker">
           <div id="drop-zone">    
@@ -167,7 +192,7 @@
       
       <p>
         <input type="file" id="file-picker" style="display: none;">
-        <div style="width: 100%; text-align: center;" >
+        <div style="width: 100%; text-align: center;">
           <img id="preview" style="display: block; margin: 0 auto;">
           <img id="newimage" style="display: block; margin: 0 auto;"><br>
         </div>
@@ -195,7 +220,7 @@
         <button id="fileJSONledbutton" class="buttonclass"></button>
       </div>
       <div>
-        <h3>Version 1.0.3 - <a href="https://github.com/werkstrom/WLED-PixelArtConverter/blob/main/README.md" target="_blank">Help/About</a></h3>
+        <h3><div id="version">Version 1.0.4</div>&nbsp;-&nbsp; <a href="https://github.com/werkstrom/WLED-PixelArtConverter/blob/main/README.md" target="_blank">Help/About</a></h3>
       </div>
     </div>
     <div id=bottom-part style="display: none" class=bottom-part></div>

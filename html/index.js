@@ -275,8 +275,38 @@ function generateSegmentArray(noOfSegments) {
   return arr;
 }
 
+
+//Animate matrix
+var matrixcircles = document.querySelectorAll("#logomatrix path");
+var intervalId;
+// Function that changes the color of a random circle to a lighter purple
+function changeColorOfDot() {
+  // Get a random number between 0 and the number of circles
+  var randomIndex = Math.floor(Math.random() * matrixcircles.length);
+  // Get the circle at the random index
+  var randomCircle = matrixcircles[randomIndex];
+
+  
+  // Store the current fill color
+  var currentColor = randomCircle.getAttribute("fill");
+  // Change the color of the circle
+  randomCircle.setAttribute("fill", "#bb8fbc");
+  setTimeout(() => {
+    randomCircle.setAttribute("fill", currentColor);
+    clearInterval(intervalId);
+    intervalId = setInterval(changeColorOfDot, randomInterval());
+  }, 500);
+}
+
+function randomInterval() {
+  var interval = Math.floor(Math.random() * (5 - 1 + 1)) + 1;
+  return interval * 1000;
+}
+
+// call the function changeColorOfDot every 10 seconds
+intervalId = setInterval(changeColorOfDot, randomInterval());
+
 var segmentData = generateSegmentArray(10);
-// [{"value":0, "text": "Segment index 0"},{"value":1, "text": "Segment index 1"},{"value":2, "text": "Segment index 2"},{"value":3, "text": "Segment index 3"}];
 
 generateSegmentOptions(segmentData);
 
