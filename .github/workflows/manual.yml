@@ -46,7 +46,7 @@ jobs:
       run: git add pixartmin.htm
     - name: Use env file
       env:
-        envFile: env.yml
+        envFile: manualenv.yml
       run: |
         echo "The version is ${{ env.version_string }}"
     - name: Commit the changes
