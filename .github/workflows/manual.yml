@@ -50,7 +50,7 @@ jobs:
       run: |
         echo "The version is ${{ env.version_string }}"
     - name: Commit the changes
-      run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "${{ env.version_string }}"
+      run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m ${{ env.version_string }}
     - name: Push the changes
       run: git push 
       #run: git push git@github.com:myname/myproject.git
