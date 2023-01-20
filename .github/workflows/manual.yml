@@ -34,9 +34,6 @@ jobs:
       run: git pull
     - name: Check if the file is present
       run: ls  
-    - name: Use env file
-      env:
-        envFile: manualenv.yml
     - name: Check if the file is present
       run: ls html/
     - name: Copy and Rename File
@@ -49,6 +46,8 @@ jobs:
       run: git add pixartmin.htm
     - name: Commit the changes
       run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "${{ env.version_string }}"
+      env:
+        envFile: manualenv.yml
     - name: Push the changes
       run: git push 
       #run: git push git@github.com:myname/myproject.git
