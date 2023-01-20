@@ -28,10 +28,5 @@ jobs:
     # Runs a single command using the runners shell
     - name: Checkout
       uses: actions/checkout@v3.3.0
-    - name: Copy file
-      uses: canastro/copy-action@0.0.2
-      with:
-        # Source file
-        source: "html/index.html"
-        # Target file
-        target: "pixart.html"
+    - name: Copy and Rename File
+      run: cp /html/index.html /html/pixartmin.htm
