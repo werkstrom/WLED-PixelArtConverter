@@ -34,6 +34,9 @@ jobs:
       run: git pull
     - name: Check if the file is present
       run: ls  
+    - name: Use env file
+      env:
+        envFile: manualenv.yml
     - name: Check if the file is present
       run: ls html/
     - name: Copy and Rename File
@@ -44,10 +47,8 @@ jobs:
       run: ls html/      
     - name: Add the changes
       run: git add pixartmin.htm
-    - name: Set version_string variable
-      run: echo "::set-env name=version_string::Version ${{ inputs.version }}"
     - name: Commit the changes
-      run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "Add pixartmin.htm"
+      run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "${{ env.version_string }}"
     - name: Push the changes
       run: git push 
       #run: git push git@github.com:myname/myproject.git
