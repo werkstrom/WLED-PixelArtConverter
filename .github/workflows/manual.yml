@@ -44,10 +44,13 @@ jobs:
       run: ls html/      
     - name: Add the changes
       run: git add pixartmin.htm
+    - name: Use env file
+      env:
+        envFile: env.yml
+      run: |
+        echo "The version is ${{ env.version_string }}"
     - name: Commit the changes
       run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "${{ env.version_string }}"
-      env:
-        envFile: manualenv.yml
     - name: Push the changes
       run: git push 
       #run: git push git@github.com:myname/myproject.git
