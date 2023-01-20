@@ -38,6 +38,12 @@ jobs:
       run: ls html/
     - name: Copy and Rename File
       run: cp html/index.html pixartmin.htm
+    - name: Check if the file is present
+      run: ls  
+    - name: Check if the file is present
+      run: ls html/      
+    - name: Add the changes
+      run: git add pixartmin.htm
     - name: Commit the changes
       run: git -c user.name='werkstrom' -c user.email='henrik@werkstrom.com' commit -m "Add pixartmin.htm"
     - name: Push the changes
