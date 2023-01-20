@@ -34,5 +34,5 @@ jobs:
       run: ls  
     - name: Check if the file is present
       run: ls html/
-    #- name: Copy and Rename File
-    #  run: cp /html/index.html /pixartmin.htm
+    - name: Copy and Rename File
+      run: cp html/index.html pixartmin.htm
