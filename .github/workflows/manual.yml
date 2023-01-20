@@ -45,7 +45,7 @@ jobs:
     - name: Add the changes
       run: git add pixartmin.htm
     - name: Commit the changes
-      run: git -c user.name='werkstrom' -c user.email='henrik@werkstrom.com' commit -m "Add pixartmin.htm"
+      run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "Add pixartmin.htm"
     - name: Push the changes
       run: git push 
       #run: git push git@github.com:myname/myproject.git
