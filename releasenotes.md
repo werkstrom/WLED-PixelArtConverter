@@ -1,5 +1,9 @@
 # Version 1.0.3  
 ## Main take aways 
+- Minor visual adjustments
+
+# Version 1.0.3  
+## Main take aways 
 - Possible to send your image to different segments. There appear to be some sort of issue we havent identified, so currently only segment 0 works. Bur we need to get the function in there to test, so... Test on!
 - Minor adjustments and bugfixes
 
