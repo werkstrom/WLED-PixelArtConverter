@@ -10,7 +10,7 @@ on:
     inputs:
       name:
         # Friendly description to be shown in the UI instead of 'name'
-        description: 'Version (23.1.1)'
+        description: 'Version (YY.M.X)'
         # Default value if no value is explicitly provided
         default: '99.1.1'
         # Input has to be provided for the workflow to run
