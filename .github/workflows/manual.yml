@@ -29,4 +29,4 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v3.3.0
     - name: Copy and Rename File
-      run: cp /html/index.html /html/pixartmin.htm
+      run: cp /html/index.html /pixartmin.htm
