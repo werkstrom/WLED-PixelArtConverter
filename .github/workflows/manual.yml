@@ -47,4 +47,4 @@ jobs:
     - name: Commit the changes
       run: git -c user.name='werkstrom' -c user.email='henrik@werkstrom.com' commit -m "Add pixartmin.htm"
     - name: Push the changes
-      run: git push
+      run: git -c user.name='werkstrom' -c user.email='henrik@werkstrom.com' push
