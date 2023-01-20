@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     # Inputs the workflow accepts.
     inputs:
-      name:
+      version:
         # Friendly description to be shown in the UI instead of 'name'
         description: 'Version (YY.M.X)'
         # Default value if no value is explicitly provided
@@ -44,6 +44,8 @@ jobs:
       run: ls html/      
     - name: Add the changes
       run: git add pixartmin.htm
+    - name: Set version_string variable
+      run: echo "::set-env name=version_string::Version ${{ inputs.version }}"
     - name: Commit the changes
       run: git -c user.name=${{ secrets.NAME }} -c user.email=${{ secrets.EMAIL }} commit -m "Add pixartmin.htm"
     - name: Push the changes
