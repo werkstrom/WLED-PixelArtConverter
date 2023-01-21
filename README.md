@@ -7,7 +7,9 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 
 * Please read "Current notes" at the end of the document for known issues and important hints.*
 
-* *To run* ***directly*** *from WLED device use pixartmin.html according to* ***instructions below.***
+* *To run* ***directly*** *from WLED device use pixartmin.html according to* ***instructions below.***  
+
+* As the PixelArtConverter has moved into the main WLED project, sourcecode will no longer be available here. Only downloadable stand alones and documentation.
 
 ## Most notable functions
 
@@ -20,10 +22,11 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 - Very small footprint. Only about 35 kB excluding favicons
 - 100% pure Javascript/html/CSS
 - Runs in your browser only, no sending iimages to any cloud services
+- Communicates with your device(s) to get valid options.
 
 ## Basic Operations
 
-1. First download the ZIP from here (download[version].zip) and extract it to some where on your computer. Any OS should do really since its purely run inside the browser. *Note: If you are only interested in the fastest and easiest way to run PixelArtCreator. Download the pixartmin.html file only. It has all of the functions but in a much smaller package. Also only one file to move around for you.*
+1. First download the pixart.htm file and save it to some where on your computer. Any OS should do really since its purely run inside the browser. *Note: If you are only interested in the fastest and easiest way to run PixelArtConverter. Download the pixartmin.html file only. It has all of the functions but in a much smaller package. Also only one file to move around for you.*
 2. Locate the index.html file. And open it
 3. Select the settings according to your settup and what you want to do.
 4. Select an image (or drag and drop one) and make sure the preview is visable (the very small image). This indicates your image can be read by the tool
@@ -43,6 +46,7 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 8. Paste the text into your tool of choice.  
 
 ## Running directly on your WLED device  
+*As PixelArtConverter is no merged into the main WLED project. This option will shortly be available as default*
 Most WLED devices are low power very limited compute so it is important to make life as easy as possible for it. That's why there is a one-file-solution for you to use if you want to make PixelArtConverter available by accessing your WLED device. Follow these steps:  
 
 1. Download the *pixartmin.html* file only (not the .zip)
@@ -72,7 +76,7 @@ As of version 1.0.1 there is a hybrid mode that utilizes the ability to mix sing
 WLED is running on very limited devices, and you're throwing a massive amount af data on them in a very short time. To make things easy on the devices, limit your number of colors. You can test with your device how much it can handle. But this will vary.
 
 ## Target segment id  
-If multiple segemnts are set up in WLED you can send it to any one of them. As of writing the function is experimentl as there is some issue we are trying to identify the source of. Only sending to segment 0 works.
+If multiple segements are set up in WLED you can send it to any one of them. The most convenient way to set a valid target is to query the device for valid IDs. Simply make sure your device's IP/host is set in the field above and click the "Get from cloud" icon. If connection is successful, the icon briefly turns green and you get a selection of available segment IDs to select from. If connection is unsuccesfull the icon turs red briefly in which case you can still manually set a segment and generate code for later use. To reset the selection change the IP/host and click the button again.
 
 ### Home Assistant
 The code generated will create a switch for you within home Assistant. What you do with it, how you trigger it, how you make it look in Home Assistant... Anything you wonder about that. Head over to the [Home Assistant Forum](https://community.home-assistant.io/)
