@@ -1,3 +1,14 @@
+# Version 1.0.6  
+## Main take aways 
+- Streamlined the conversion process  
+  - Image generates as soon as there is enough input to generete an image
+  - Image regenerates on value changes. No need to press convert button
+  - Segments are now named as on the device
+  - If are selected, and rescale is active, w/h will be automatically set from the selected segment
+  - Buttons that communicate with the device is more informative of success (green) or fail (red)
+  - Convertbutton removed (since there is no use for pressing it any more)
+- Minor bugfixes and adjustments
+
 # Version 1.0.5  
 ## Main take aways 
 - Querying the device for available segments
