@@ -11,7 +11,7 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 
 * As the PixelArtConverter has moved into the main WLED project, sourcecode will no longer be available here. Only downloadable stand alones and documentation.  
   
-* With the official WLED V0.14.0-b1 there are some issues with the 2D matrix implementation. It's teh first release, so no surprise. Many (all known) are fixed and available in the nightly builds. You can get one here but be aware it is development builds. [https://wled-install.github.io/](https://wled-install.github.io/)
+* With the official WLED V0.14.0-b1 there are some issues with the 2D matrix implementation. It's the first release, so no surprise. Many (all known) are fixed and available in the nightly builds. You can get one here but be aware it is development builds. [https://wled-install.github.io/](https://wled-install.github.io/)
 
 ## Most notable functions
 
@@ -45,7 +45,7 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 **B. Use elsewhere**  
 
 7. Copy the generated code if you want to use it outside of the PixelArtConverter/WLED Note: Since you are running the tool localy, you will not be allowed to copy to your clipboard automatically. You will ned to mark the entire text (ctrl+a) and copy it (ctrl+c).
-8. Paste the text into your tool of choice.  
+8. Paste the text into your tool of choice. **Note: The Preset API setup (where you can paste JSON and create a preset) does currently not support multiple commands, i.e. your entire settings JSON *must* be in one single command string.**  
 
 ## Running directly on your WLED device  
 *As PixelArtConverter is no merged into the main WLED project. This option will shortly be available as default*
@@ -88,10 +88,6 @@ If you want to create your own or modify/edit then [www.pixilart.com](https://ww
 If you want to find old sprites from old games try out [www.spriters-resource.com](https://www.spriters-resource.com) or [opengameart.org](https://opengameart.org/)
 There are also some (a few) here in the folder "examples"
 
-## Developer mode  
-Some experimental features are activated in Developer Mode. Instability should be expected and not all features are fully implemented. Use with even ***more*** **at your own risk** than PixelArtConverter comes with in the first place.  
-To activate appent "?dev" to the url, like http://[your-device-ip]/pixartmin.html?dev
-
 ## Current notes
 
 ### http, https and the issue with **mixed content** in web browsers
@@ -107,7 +103,3 @@ As of V0.14.0-b1 there is a bug in WLED that PixelArtConverter have a workaround
 2. Have a later build of WLED.
 
 It should in practise not be a problem, but keep in mind if you get issues
-
-
-
-
