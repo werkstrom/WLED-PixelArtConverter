@@ -9,7 +9,9 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 
 * *To run* ***directly*** *from WLED device use pixartmin.html according to* ***instructions below.***  
 
-* As the PixelArtConverter has moved into the main WLED project, sourcecode will no longer be available here. Only downloadable stand alones and documentation.
+* As the PixelArtConverter has moved into the main WLED project, sourcecode will no longer be available here. Only downloadable stand alones and documentation.  
+  
+* With the official WLED V0.14.0-b1 there are some issues with the 2D matrix implementation. It's teh first release, so no surprise. Many (all known) are fixed and available in the nightly builds. You can get one here but be aware it is development builds. [https://wled-install.github.io/](https://wled-install.github.io/)
 
 ## Most notable functions
 
@@ -26,8 +28,8 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 
 ## Basic Operations
 
-1. First download the pixart.htm file and save it to some where on your computer. Any OS should do really since its purely run inside the browser. *Note: If you are only interested in the fastest and easiest way to run PixelArtConverter. Download the pixartmin.html file only. It has all of the functions but in a much smaller package. Also only one file to move around for you.*
-2. Locate the index.html file. And open it
+1. First download the pixart.htm file and save it to some where on your computer. Any OS should do really since its purely run inside the browser. *Note: As of V 1.0.8 only the minified version is distributed as it has all the functionality, but in a smaller package.*
+2. And open the pixart.htm file in any modern browser.
 3. Select the settings according to your settup and what you want to do.
 4. Select an image (or drag and drop one) and make sure the preview is visable (the very small image). This indicates your image can be read by the tool
 5. Click the button below to convert your image.
@@ -49,10 +51,10 @@ Find out more about the awesome [WLED software](https://kno.wled.ge/) or their [
 *As PixelArtConverter is no merged into the main WLED project. This option will shortly be available as default*
 Most WLED devices are low power very limited compute so it is important to make life as easy as possible for it. That's why there is a one-file-solution for you to use if you want to make PixelArtConverter available by accessing your WLED device. Follow these steps:  
 
-1. Download the *pixartmin.html* file only (not the .zip)
+1. Download the *pixart.htm* file
 2. Direct you browser to http://[your.device.ip]/edit
-3. Upload the *pixartmin.html* file using the UI
-4. Direct you browser to http://[your.device.ip]/pixartmin.html  
+3. Upload the *pixart.htm* file using the UI
+4. Direct you browser to http://[your.device.ip]/pixart.htm  
 
 And you should be good to go.
 
@@ -95,14 +97,14 @@ To activate appent "?dev" to the url, like http://[your-device-ip]/pixartmin.htm
 ### http, https and the issue with **mixed content** in web browsers
 As a security meassure web browser do not allow you to access resources (web panges and web services) through http (un encrypted) from a page (like PixelArtConverter) when it is loaded through https (encrypted). Also public webservers (like [ledcalculator.werkstrom.com](https://ledcalculator.werkstrom.com)) "must" (in practise) use https. This means two things.
 
-1. In order to upload directly to your device, PixelArtConverter **must** be loaded in the same security context (http/https) as WLED. Since most WLED devices are local, IoT devices it's mainly http. That's why you need to download the files and run them locally. A more convenient sollution is to have WLED serve you the page directly as that will solve any issues with possible missmatch. As of today you can set this up manually by uploading the files to your device @ [your.device.ip]/edit and then loading it to your browser using [your.device.ip]/index.html. We're looking into adding it in a more convenient way.
+1. In order to upload directly to your device, PixelArtConverter **must** be loaded in the same security context (http/https) as WLED. Since most WLED devices are local IoT devices it's mainly http. That's why you need to download the files and run them locally. A more convenient sollution is to have WLED serve you the page directly as that will solve any issues with possible missmatch. As of today you can set this up manually by uploading the files to your device @ [your.device.ip]/edit and then loading it to your browser using [your.device.ip]/index.html. We're looking into adding it in a more convenient way.
 2. You cannot use the tool @ [ledcalculator.werkstrom.com](https://ledcalculator.werkstrom.com) to upload **directly** to your device. The generated JSON, CURL and Home Assistant code will work just fine though.
 
 ### Possible issue with single addressing after WLED V0.14.0-b1
 As of V0.14.0-b1 there is a bug in WLED that PixelArtConverter have a workaround for that will probably break your upload if you
 
 1. Use **Single** addressing (and you shouldn't)
-2. Have a later build of WLED. 
+2. Have a later build of WLED.
 
 It should in practise not be a problem, but keep in mind if you get issues
 
