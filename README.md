@@ -1,7 +1,10 @@
-# Download instruction
+# Download instructions
 ***Right***-Click [here](https://raw.githubusercontent.com/werkstrom/WLED-PixelArtConverter/main/pixart.htm) and select save to your local computer. 
 
 Acctual text may differ depending on browser, but for Chrome (as of writing) the menu item would to select be *[Save link as...]*.
+
+# Additional instructions
+There are now instructions directly in the WLED documentation [here](https://kno.wled.ge/features/pixel-art-converter/). As the Pixel Art Converter project migrates to main WLED project, documentation will most likely primarily be done there as it is beneficial to have a complete, end-to-end documentation on how to set up WLED and use Pixel Art Converter together.
 
 # WLED-PixelArtConverter
 Convert any image your browser can render into pixel art for WLED
