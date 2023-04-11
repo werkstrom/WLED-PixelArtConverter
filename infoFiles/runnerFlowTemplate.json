@@ -1,0 +1,92 @@
+{
+    "description" : "My first flow",
+    "created": "2023-04-05",
+    "repeat": true,
+    "sets": [
+        {
+            "id": 1,
+            "commands": [
+                {
+                    "position": 1,
+                    "command": "{Valid WLED API COMMAND}"
+                },
+                {
+                    "position": 2,
+                    "command": "{Valid WLED API COMMAND}"
+                },
+                {
+                    "position": 3,
+                    "command": "{Valid WLED API COMMAND}"
+                }
+            ]
+        },{
+            "id": 1,
+            "commands": [
+                {
+                    "position": 1,
+                    "command": "{Valid WLED API COMMAND}"
+                },
+                {
+                    "position": 2,
+                    "command": "{Valid WLED API COMMAND}"
+                },                
+                {
+                    "position": 3,
+                    "command": "{Valid WLED API COMMAND}"
+                }
+            ]
+        },{
+            "id": 4,
+            "commands": [
+                {
+                    "position": 1,
+                    "command": "{Valid WLED API COMMAND}"
+                }
+            ]
+        },{
+            "id": 2,
+            "commands": [
+                {
+                    "position": 1,
+                    "command": "{Valid WLED API COMMAND}"
+                },
+                {
+                    "position": 2,
+                    "command": "{Valid WLED API COMMAND}"
+                }
+            ]
+        }
+    ],
+    "steps":[
+        {
+            "step": 1,
+            "commandId": 2,
+            "duration": 500
+        },
+        {
+            "step": 2,
+            "commandId": 1,
+            "duration": 300
+        },
+        {
+            "step": 3,
+            "commandId": 2,
+            "duration": 800
+        },
+        {
+            "step": 4,
+            "commandId": 4,
+            "duration": 1000
+        },
+        {
+            "step": 5,
+            "commandId": 2,
+            "duration": 500
+        },
+        {
+            "step": 6,
+            "commandId": 3,
+            "duration": 500
+        }
+    ]
+}
