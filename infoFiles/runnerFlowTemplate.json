@@ -4,7 +4,7 @@
     "repeat": true,
     "sets": [
         {
-            "id": 1,
+            "id": "numeroUno",
             "commands": [
                 {
                     "position": 1,
@@ -20,7 +20,7 @@
                 }
             ]
         },{
-            "id": 1,
+            "id": "SecondToNone",
             "commands": [
                 {
                     "position": 1,
@@ -36,7 +36,7 @@
                 }
             ]
         },{
-            "id": 4,
+            "id": "4",
             "commands": [
                 {
                     "position": 1,
@@ -44,7 +44,7 @@
                 }
             ]
         },{
-            "id": 2,
+            "id": "2",
             "commands": [
                 {
                     "position": 1,
@@ -60,32 +60,32 @@
     "steps":[
         {
             "step": 1,
-            "commandId": 2,
+            "commandId": "SecondToNone",
             "duration": 500
         },
         {
             "step": 2,
-            "commandId": 1,
+            "commandId": "numeroUno",
             "duration": 300
         },
         {
             "step": 3,
-            "commandId": 2,
+            "commandId": "SecondToNone",
             "duration": 800
         },
         {
             "step": 4,
-            "commandId": 4,
+            "commandId": "4",
             "duration": 1000
         },
         {
             "step": 5,
-            "commandId": 2,
+            "commandId": "2",
             "duration": 500
         },
         {
             "step": 6,
-            "commandId": 3,
+            "commandId": "SecondToNone",
             "duration": 500
         }
     ]
