@@ -1,5 +1,9 @@
 # Download instructions
-***Right***-Click [here](https://raw.githubusercontent.com/werkstrom/WLED-PixelArtConverter/main/pixart.htm) and select save to your local computer. 
+For stable (1.0.8)  
+***Right***-Click [here](https://raw.githubusercontent.com/werkstrom/WLED-PixelArtConverter/main/pixart.htm) and select save to your local computer.  
+
+For beta (1.1.0)  
+***Right***-Click [here](https://raw.githubusercontent.com/werkstrom/WLED-PixelArtConverter/main/beta/pixart.htm) and select save to your local computer.
 
 Acctual text may differ depending on browser, but for Chrome (as of writing) the menu item would to select be *[Save link as...]*.
 
